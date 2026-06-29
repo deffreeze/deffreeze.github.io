@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>Tes FPS & Performa MuMu Player — Pengukur Frame Rate Langsung</title>
+<meta name="description" content="Pengukur FPS gratis berbasis browser dan cek perangkat cepat untuk MuMu Player. Ukur frame rate langsung, baca CPU, RAM, dan GPU, lalu nilai apakah game Android berjalan mulus di emulator.">
+<link rel="canonical" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Tes FPS & Performa MuMu Player — Pengukur Frame Rate Langsung",
+   "url": "https://deffreeze.github.io/id/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "id",
+   "description": "Pengukur FPS gratis berbasis browser dan cek perangkat cepat untuk MuMu Player. Ukur frame rate langsung, baca CPU, RAM, dan GPU, lalu nilai apakah game Android berjalan mulus di emulator.",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "id",
+   "url": "https://deffreeze.github.io/id/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Bagaimana cara kerja tes FPS ini?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tes ini memakai callback requestAnimationFrame browser untuk menghitung berapa frame yang dirender tiap detik. Semuanya berjalan lokal di browser Anda; tidak ada yang diunggah."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa FPS saya mentok di 60?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Browser menyinkronkan gambar dengan refresh rate layar. Layar 60 Hz membatasi browser sekitar 60 FPS meski GPU bisa lebih."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apakah FPS browser tinggi berarti game MuMu pasti mulus?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Itu hanya gambaran kasar performa perangkat. Kemulusan emulator juga bergantung pada VT, alokasi CPU dan RAM, serta mode render grafis."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apa syarat minimum MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Menurut syarat resmi: Windows 7 atau lebih baru, CPU 4 inti seperti i5-7500 dengan VT aktif, GPU kelas GTX 950, dan RAM 4 GB."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa MuMu Player patah-patah?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Paling sering VT mati, inti atau RAM instance terlalu sedikit, atau mode render tidak cocok dengan GPU. Panduan performa yang ditautkan membahas tiap perbaikan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bisakah mencapai 120 FPS di MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Beberapa game mendukung mode FPS tinggi. Anda juga perlu layar 120 Hz atau lebih dan GPU memadai untuk benar-benar melihatnya."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apakah alat ini mengunggah data saya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tidak. Pengukuran FPS dan pembacaan perangkat sepenuhnya berjalan di browser dan tidak pernah dikirim ke server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GPU saya tampil sebagai software atau SwiftShader, apa artinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Browser Anda tidak memakai akselerasi perangkat keras. Aktifkan di setelan browser agar pembacaan akurat dan emulator lebih mulus."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "Ukur FPS saya (5 dtk)", "stop": "Berhenti", "current": "Sekarang", "average": "Rata-rata", "min": "Min", "max": "Maks", "hz": "Puncak/Hz", "cores": "Thread CPU", "mem": "Memori", "gpu": "GPU", "screen": "Layar", "v_pre": "Perangkat Anda kira-kira kelas", "v_post": ". Bandingkan dengan tabel di bawah.", "t_entry": "Pemula", "t_main": "Menengah", "t_high": "Kelas atas"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <strong>Bahasa Indonesia</strong> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Tes FPS / Performa MuMu Player</h1>
+<p class="intro">Penasaran apakah PC ini bisa menjalankan game MuMu Player dengan mulus? Alat browser gratis ini mengukur frame rate (FPS) Anda secara langsung dengan requestAnimationFrame dan membaca info dasar perangkat — jumlah thread CPU, memori, dan GPU — untuk perkiraan performa cepat. Semuanya berjalan lokal dan tidak ada data yang diunggah.</p>
+<div class="tool"><button id="btn">Ukur FPS saya (5 dtk)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>Sekarang</label></div><div><span id="f_avg">-</span><label>Rata-rata</label></div><div><span id="f_min">-</span><label>Min</label></div><div><span id="f_max">-</span><label>Maks</label></div><div><span id="f_hz">-</span><label>Puncak/Hz</label></div></div><div class="dev"><span>Thread CPU</span> <b id="d_cores">-</b> · <span>Memori</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>Layar</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">Tips: biarkan tab ini aktif saat mengukur. FPS browser dibatasi refresh rate layar, jadi ini panduan relatif, bukan batas maksimal GPU.</p>
+<h2>Arti angka FPS Anda</h2>
+<p>30 FPS adalah batas bawah agar bisa dimainkan; naik ke 60 FPS adalah lompatan kemulusan yang paling terasa, sedangkan di atas 120 FPS perbedaannya halus. Pada 60 FPS tiap frame hanya punya anggaran sekitar 16,7 md, sehingga apa pun yang menahan satu frame terlihat sebagai patah-patah.</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skala rasa FPS" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Skala rasa FPS</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">dari patah-patah hingga mulus refresh tinggi</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ Patah-patah</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">Sangat mulus ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">FPS browser dibatasi refresh rate layar (mis. 60 Hz membatasi sekitar 60).</text></svg><figcaption>Gbr 1: bagaimana tiap rentang frame rate terasa dalam gerakan.</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>Terasa seperti</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>Patah-patah jelas; sulit membidik atau menggulir mulus.</td></tr><tr><td class="fpsv">30–45</td><td>Bisa dimainkan; cukup untuk game kasual dan giliran.</td></tr><tr><td class="fpsv">60</td><td>Mulus; target nyaman untuk kebanyakan game.</td></tr><tr><td class="fpsv">90–120</td><td>Sangat mulus; perlu layar 120 Hz+ dan GPU kuat.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="Spanduk tes FPS dan performa MuMu Player" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>Pengukur FPS dan cek perangkat gratis sepenuhnya di sisi klien untuk MuMu Player.</figcaption></figure>
+<h2>Apakah MuMu Player berjalan mulus di PC Anda?</h2>
+<p>MuMu Player butuh minimal CPU 4 inti dengan VT aktif, RAM 4 GB, dan GPU kelas GTX 950. Sebagian besar patah-patah berasal dari VT yang mati, alokasi CPU atau RAM yang terlalu sedikit, atau mode render grafis yang salah —  <a href="https://playermumu.com/performance/">panduan optimasi performa dan FPS tinggi MuMu</a> membahas tiap perbaikannya langkah demi langkah.</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bisakah perangkat Anda menjalankan MuMu dengan mulus?" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Bisakah perangkat Anda menjalankan MuMu dengan mulus?</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / perangkat</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">FPS & spek cukup?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">Kemungkinan mulus</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">Kemungkinan lag</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Tiga penentu FPS emulator</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">Aktifkan di BIOS</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">Alokasikan inti / RAM</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">Nyalakan mode FPS tinggi</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Gbr 2: dari cek cepat ke tiga tuas yang mengatur frame rate MuMu.</figcaption></figure>
+<h3>Kelas perangkat dan FPS khas MuMu</h3>
+<table class="ref"><thead><tr><th>Kelas</th><th>Inti / RAM</th><th>GPU</th><th>FPS khas</th><th>Cocok untuk</th></tr></thead><tbody><tr><td><b>Pemula</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>Game kasual, kartu, dan 2D di grafis rendah sampai sedang.</td></tr><tr><td><b>Menengah</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>Sebagian besar game 3D pada 60 FPS, grafis tinggi.</td></tr><tr><td><b>Kelas atas</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>Shooter kompetitif, mode FPS tinggi, dan multi-instance.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="Diagram batang FPS khas MuMu per kelas perangkat" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>FPS emulator khas naik seiring kelas CPU, RAM, dan GPU (perkiraan 2026).</figcaption></figure>
+<h2>Cek cepat dunia nyata</h2>
+<ul class="scenes"><li>Browser mentok di 60 FPS padahal GPU kuat? Itu refresh rate monitor atau throttling browser, bukan batas emulator.</li><li>Mulus di browser tapi lag di MuMu? Pastikan VT (virtualisasi) aktif di BIOS — ini penyebab paling umum.</li><li>Lag multi-instance: turunkan inti dan RAM per instance, atau jalankan lebih sedikit sekaligus.</li><li>Patah-patah saat memuat di HDD lama? Pasang MuMu Player di SSD.</li><li>GPU tampil sebagai SwiftShader atau software? Akselerasi perangkat keras mati; aktifkan agar pembacaan akurat dan game lebih mulus.</li></ul>
+<section id="i4data"><h2>Perkiraan 2026: FPS khas game per kelas</h2>
+<p>Tabel di bawah adalah perkiraan 2026 (bukan tolok ukur langsung) tentang FPS khas di emulator untuk genre game Android populer di tiga kelas perangkat.</p>
+<table class="ref"><thead><tr><th>Genre game</th><th>Pemula</th><th>Menengah</th><th>Kelas atas</th></tr></thead><tbody><tr><td>Kartu / kasual / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>RPG dunia terbuka 3D</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>Shooter kompetitif / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">Hanya perkiraan, bukan tolok ukur langsung. FPS nyata bervariasi menurut game tertentu, setelan grafis, mode render MuMu, dan jumlah instance yang berjalan bersamaan.</p></section>
+<h2>Pertanyaan umum</h2>
+<div class="faq"><details><summary>Bagaimana cara kerja tes FPS ini?</summary><div class="ans">Tes ini memakai callback requestAnimationFrame browser untuk menghitung berapa frame yang dirender tiap detik. Semuanya berjalan lokal di browser Anda; tidak ada yang diunggah.</div></details>
+<details><summary>Mengapa FPS saya mentok di 60?</summary><div class="ans">Browser menyinkronkan gambar dengan refresh rate layar. Layar 60 Hz membatasi browser sekitar 60 FPS meski GPU bisa lebih.</div></details>
+<details><summary>Apakah FPS browser tinggi berarti game MuMu pasti mulus?</summary><div class="ans">Itu hanya gambaran kasar performa perangkat. Kemulusan emulator juga bergantung pada VT, alokasi CPU dan RAM, serta mode render grafis.</div></details>
+<details><summary>Apa syarat minimum MuMu Player?</summary><div class="ans">Menurut syarat resmi: Windows 7 atau lebih baru, CPU 4 inti seperti i5-7500 dengan VT aktif, GPU kelas GTX 950, dan RAM 4 GB.</div></details>
+<details><summary>Mengapa MuMu Player patah-patah?</summary><div class="ans">Paling sering VT mati, inti atau RAM instance terlalu sedikit, atau mode render tidak cocok dengan GPU. Panduan performa yang ditautkan membahas tiap perbaikan.</div></details>
+<details><summary>Bisakah mencapai 120 FPS di MuMu Player?</summary><div class="ans">Beberapa game mendukung mode FPS tinggi. Anda juga perlu layar 120 Hz atau lebih dan GPU memadai untuk benar-benar melihatnya.</div></details>
+<details><summary>Apakah alat ini mengunggah data saya?</summary><div class="ans">Tidak. Pengukuran FPS dan pembacaan perangkat sepenuhnya berjalan di browser dan tidak pernah dikirim ke server.</div></details>
+<details><summary>GPU saya tampil sebagai software atau SwiftShader, apa artinya?</summary><div class="ans">Browser Anda tidak memakai akselerasi perangkat keras. Aktifkan di setelan browser agar pembacaan akurat dan emulator lebih mulus.</div></details>
+</div>
+<div class="related"><h2>Sumber dan penulis</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">Situs resmi MuMu Player</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">Syarat sistem MuMu Player (resmi)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">Tentang penulis: Su Hang</a></li>
+</ul></div>
+</main>
+<footer>Data dihimpun dari syarat resmi MuMu Player dan referensi frame rate publik; hanya untuk acuan.<br>Diperbarui Juni 2026 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

@@ -1,0 +1,34 @@
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial;line-height:1.75;color:#1d1d1f;background:#f5f6f8;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:26px 18px}
+main{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+h1{margin:.2em 0 .4em;font-size:27px;letter-spacing:-.3px}
+h2{font-size:20px;margin-top:34px;border-top:1px solid #eee;padding-top:18px}
+h3{font-size:16px;margin-top:24px}
+p.intro{font-size:16.5px;color:#33343a}
+a{color:#1565ff;text-decoration:none}a:hover{text-decoration:underline}
+.lang{font-size:13px;color:#8a8a90;margin-bottom:14px;line-height:2}
+.tool{background:linear-gradient(135deg,#0c1730,#1b3e7e);color:#fff;border-radius:16px;padding:22px 22px 18px;margin:14px 0}
+.tool button{font-size:17px;font-weight:600;padding:12px 26px;border:0;border-radius:12px;background:#3485ff;color:#fff;cursor:pointer}
+.tool button:active{transform:translateY(1px)}
+.fpsgrid{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 10px}
+.fpsgrid>div{flex:1 1 90px;background:rgba(255,255,255,.08);border-radius:12px;padding:10px 6px;text-align:center}
+.fpsgrid span{display:block;font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.fpsgrid label{font-size:11.5px;color:#aebfe0;text-transform:uppercase;letter-spacing:.5px}
+.dev{font-size:13px;color:#c8d4ee;margin-top:6px;word-break:break-word}.dev b{color:#fff}
+.verdict{margin-top:12px;font-size:15px;background:rgba(52,133,255,.18);border:1px solid rgba(52,133,255,.4);border-radius:12px;padding:11px 14px;min-height:8px}
+p.hint{font-size:12.5px;color:#8a8a90;margin-top:-2px}
+table.ref{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+table.ref th{background:#f3f5f9;text-align:left;padding:9px 10px;font-size:13px;color:#444;border-bottom:2px solid #e6e8ee}
+table.ref td{border-bottom:1px solid #eef0f3;padding:9px 10px;vertical-align:top}
+.fpsv{font-family:ui-monospace,Consolas,monospace;color:#1565ff;font-weight:700;white-space:nowrap}
+ul.scenes li{margin:8px 0}
+.faq details{border:1px solid #eef0f3;border-radius:10px;padding:6px 12px;margin:8px 0;background:#fafbfc}
+.faq summary{cursor:pointer;font-weight:600;padding:6px 0}
+.faq .ans{color:#444;padding:4px 0 10px}
+figure{margin:18px 0}figcaption{color:#8a8a90;font-size:12.5px;text-align:center;margin-top:7px}
+.related{margin-top:30px;border-top:2px solid #eee;padding-top:14px}
+.related ul{padding-left:18px}.related li{margin:6px 0}
+p.src{font-size:12px;color:#9a9aa2;margin-top:8px}
+#i4data{scroll-margin-top:60px}
+footer{color:#8a8a90;font-size:12.5px;margin-top:24px;text-align:center;line-height:1.8}

@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>MuMu Player FPS（フレームレート）テスト — ブラウザでリアルタイム計測</title>
+<meta name="description" content="MuMu Player 向けの無料 FPS 計測とかんたん端末チェック。リアルタイムのフレームレートを測り、CPU・メモリ・GPU を読み取って、エミュレーターで Android ゲームが滑らかに動くかを判断します。">
+<link rel="canonical" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "MuMu Player FPS（フレームレート）テスト — ブラウザでリアルタイム計測",
+   "url": "https://deffreeze.github.io/ja/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "ja",
+   "description": "MuMu Player 向けの無料 FPS 計測とかんたん端末チェック。リアルタイムのフレームレートを測り、CPU・メモリ・GPU を読み取って、エミュレーターで Android ゲームが滑らかに動くかを判断します。",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ja",
+   "url": "https://deffreeze.github.io/ja/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "この FPS テストはどう動く？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ブラウザの requestAnimationFrame コールバックで毎秒の描画フレーム数を数えます。すべてローカルで動作し、データは送信しません。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "なぜ FPS が 60 で頭打ち？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ブラウザは描画をディスプレイのリフレッシュレートに同期します。60Hz の画面では GPU にもっと余力があっても約 60 FPS で頭打ちです。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ブラウザの FPS が高ければ MuMu も滑らか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "端末性能のおおまかな目安です。エミュの滑らかさは VT、割り当てた CPU とメモリ、描画モードにも左右されます。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player の最低要件は？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "公式要件では Windows 7 以降、VT を有効にした i5-7500 クラスの 4 コア CPU、GTX 950 クラスの GPU、4 GB メモリです。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player がカクつくのはなぜ？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "多くは VT 無効、インスタンスのコアやメモリ不足、または GPU に合わない描画モードです。リンク先の最適化ガイドが各対処を解説します。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player で 120 FPS は出る？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "一部のゲームは高フレームモードに対応します。実際に見るには 120Hz 以上の画面と十分な GPU も必要です。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "このツールはデータを送信する？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "いいえ。FPS 計測も端末読み取りもすべてブラウザ内で行い、サーバーには一切送りません。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GPU がソフトウェアや SwiftShader と出るのは？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ブラウザがハードウェアアクセラレーションを使っていません。設定でオンにすると読み取りが正確になり、エミュも滑らかになります。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "FPS を測定（5 秒）", "stop": "停止", "current": "現在", "average": "平均", "min": "最低", "max": "最高", "hz": "ピーク/Hz", "cores": "CPU スレッド", "mem": "メモリ", "gpu": "GPU", "screen": "画面", "v_pre": "あなたの端末はおおよそ", "v_post": "クラスです。下の表と見比べてください。", "t_entry": "エントリー", "t_main": "ミドル", "t_high": "ハイエンド"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <strong>日本語</strong> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>MuMu Player FPS / パフォーマンステスト</h1>
+<p class="intro">この PC で MuMu Player のゲームが滑らかに動くか気になりますか？この無料のブラウザツールは requestAnimationFrame で現在のフレームレート（FPS）をリアルタイム計測し、CPU スレッド数・メモリ・GPU を読み取って性能を素早く見積もります。すべてローカルで動作し、データは一切送信しません。</p>
+<div class="tool"><button id="btn">FPS を測定（5 秒）</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>現在</label></div><div><span id="f_avg">-</span><label>平均</label></div><div><span id="f_min">-</span><label>最低</label></div><div><span id="f_max">-</span><label>最高</label></div><div><span id="f_hz">-</span><label>ピーク/Hz</label></div></div><div class="dev"><span>CPU スレッド</span> <b id="d_cores">-</b> · <span>メモリ</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>画面</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">ヒント：計測中はこのタブを前面に保ってください。ブラウザの FPS はディスプレイのリフレッシュレートで頭打ちになるため、GPU の上限ではなく相対的な目安です。</p>
+<h2>FPS の数字が意味すること</h2>
+<p>30 FPS が「遊べる」下限で、60 FPS への向上が滑らかさで最も体感できる一歩です。120 FPS を超えると差は小さくなります。60 FPS では 1 フレームあたり約 16.7 ミリ秒しか余裕がなく、フレームを止める処理はカクつきとして現れます。</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPS の体感スケール" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">FPS の体感スケール</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">カクつきから高リフレッシュの滑らかさまで</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ カクつき</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">非常に滑らか ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">ブラウザの FPS はディスプレイのリフレッシュレートで上限が決まります（例：60Hz なら約 60）。</text></svg><figcaption>図 1：各フレームレート帯が動きの中で実際にどう感じるか。</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>体感</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>明らかなカクつき。照準もスクロールも追従しない。</td></tr><tr><td class="fpsv">30–45</td><td>遊べる。カジュアルやターン制には十分。</td></tr><tr><td class="fpsv">60</td><td>滑らか。多くのゲームの快適な目標値。</td></tr><tr><td class="fpsv">90–120</td><td>非常に滑らか。120Hz 以上の画面と強力な GPU が必要。</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="MuMu Player FPS・パフォーマンステストのバナー" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>MuMu Player 向けの無料・完全クライアント側の FPS 計測と端末チェック。</figcaption></figure>
+<h2>MuMu Player はあなたの PC で滑らかに動く？</h2>
+<p>MuMu Player には最低でも VT を有効にした 4 コア CPU、4 GB のメモリ、GTX 950 クラスの GPU が必要です。カクつきの多くは VT がオフ、インスタンスへの CPU・メモリ割り当て不足、または不適切なグラフィックス描画モードが原因です—— <a href="https://playermumu.com/performance/">MuMu パフォーマンス最適化・高フレーム設定ガイド</a> で各対処を順に解説しています。</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="あなたの端末で MuMu は滑らかに動く？" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">あなたの端末で MuMu は滑らかに動く？</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / 端末</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">FPS とスペックは十分？</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">概ね滑らか</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">概ねカクつく</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">エミュの FPS を決める 3 要素</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">BIOS で有効化</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">コア / メモリを割当</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">高フレームモード</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>図 2：かんたん自己診断から、MuMu の FPS を左右する 3 つのレバーへ。</figcaption></figure>
+<h3>端末クラスと MuMu の代表的 FPS</h3>
+<table class="ref"><thead><tr><th>クラス</th><th>コア / メモリ</th><th>GPU</th><th>代表的 FPS</th><th>向いている用途</th></tr></thead><tbody><tr><td><b>エントリー</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>カジュアル・カード・2D を中低画質で。</td></tr><tr><td><b>ミドル</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>多くの 3D モバイルゲームを 60 FPS・高画質で。</td></tr><tr><td><b>ハイエンド</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>対戦シューター、高フレームモード、多重起動。</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="端末クラス別 MuMu 代表的 FPS の棒グラフ" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>代表的なエミュの FPS は CPU・メモリ・GPU のクラスとともに上がる（2026 推計）。</figcaption></figure>
+<h2>実例でかんたん判定</h2>
+<ul class="scenes"><li>ブラウザが 60 FPS で頭打ちなのに GPU は強力？それはモニターのリフレッシュレートかブラウザの制限で、エミュの上限ではありません。</li><li>ブラウザは滑らかなのに MuMu はカクつく？まず BIOS で VT（仮想化）が有効か確認を——最も多い原因です。</li><li>多重起動のカクつき：インスタンスごとのコアとメモリを下げるか、同時起動数を減らす。</li><li>古い HDD で読み込みがカクつく？MuMu Player を SSD にインストールしましょう。</li><li>GPU が SwiftShader やソフトウェアと表示？ハードウェアアクセラレーションがオフです。オンにすれば読み取りも正確で、ゲームも滑らかに。</li></ul>
+<section id="i4data"><h2>2026 推計：クラス別・代表的なゲーム FPS</h2>
+<p>下の表は 2026 年の推計（一次実測ではありません）で、人気の Android ゲームジャンルが 3 つの端末クラスでエミュ上どの程度の FPS になるかを示します。</p>
+<table class="ref"><thead><tr><th>ゲームジャンル</th><th>エントリー</th><th>ミドル</th><th>ハイエンド</th></tr></thead><tbody><tr><td>カード / カジュアル / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>3D オープンワールド RPG</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>対戦シューター / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">推計のみ・一次実測ではありません。実際の FPS は具体的なゲーム、画質設定、MuMu の描画モード、同時起動数で変わります。</p></section>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>この FPS テストはどう動く？</summary><div class="ans">ブラウザの requestAnimationFrame コールバックで毎秒の描画フレーム数を数えます。すべてローカルで動作し、データは送信しません。</div></details>
+<details><summary>なぜ FPS が 60 で頭打ち？</summary><div class="ans">ブラウザは描画をディスプレイのリフレッシュレートに同期します。60Hz の画面では GPU にもっと余力があっても約 60 FPS で頭打ちです。</div></details>
+<details><summary>ブラウザの FPS が高ければ MuMu も滑らか？</summary><div class="ans">端末性能のおおまかな目安です。エミュの滑らかさは VT、割り当てた CPU とメモリ、描画モードにも左右されます。</div></details>
+<details><summary>MuMu Player の最低要件は？</summary><div class="ans">公式要件では Windows 7 以降、VT を有効にした i5-7500 クラスの 4 コア CPU、GTX 950 クラスの GPU、4 GB メモリです。</div></details>
+<details><summary>MuMu Player がカクつくのはなぜ？</summary><div class="ans">多くは VT 無効、インスタンスのコアやメモリ不足、または GPU に合わない描画モードです。リンク先の最適化ガイドが各対処を解説します。</div></details>
+<details><summary>MuMu Player で 120 FPS は出る？</summary><div class="ans">一部のゲームは高フレームモードに対応します。実際に見るには 120Hz 以上の画面と十分な GPU も必要です。</div></details>
+<details><summary>このツールはデータを送信する？</summary><div class="ans">いいえ。FPS 計測も端末読み取りもすべてブラウザ内で行い、サーバーには一切送りません。</div></details>
+<details><summary>GPU がソフトウェアや SwiftShader と出るのは？</summary><div class="ans">ブラウザがハードウェアアクセラレーションを使っていません。設定でオンにすると読み取りが正確になり、エミュも滑らかになります。</div></details>
+</div>
+<div class="related"><h2>出典と著者</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">MuMu Player 公式サイト</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">MuMu Player 公式システム要件</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">著者について：苏航（Su Hang）</a></li>
+</ul></div>
+</main>
+<footer>データは MuMu Player 公式の動作要件と公開のフレームレート資料に基づく参考情報です。<br>2026 年 6 月更新 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

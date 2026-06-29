@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>ทดสอบ FPS และประสิทธิภาพ MuMu Player — วัดเฟรมเรตแบบเรียลไทม์</title>
+<meta name="description" content="เครื่องมือวัด FPS ฟรีบนเบราว์เซอร์และตรวจอุปกรณ์อย่างรวดเร็วสำหรับ MuMu Player วัดเฟรมเรตแบบเรียลไทม์ อ่านค่า CPU แรม และ GPU และประเมินว่าเกม Android จะลื่นไหลในอีมูเลเตอร์หรือไม่">
+<link rel="canonical" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "ทดสอบ FPS และประสิทธิภาพ MuMu Player — วัดเฟรมเรตแบบเรียลไทม์",
+   "url": "https://deffreeze.github.io/th/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "th",
+   "description": "เครื่องมือวัด FPS ฟรีบนเบราว์เซอร์และตรวจอุปกรณ์อย่างรวดเร็วสำหรับ MuMu Player วัดเฟรมเรตแบบเรียลไทม์ อ่านค่า CPU แรม และ GPU และประเมินว่าเกม Android จะลื่นไหลในอีมูเลเตอร์หรือไม่",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "th",
+   "url": "https://deffreeze.github.io/th/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "การทดสอบ FPS นี้ทำงานอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "มันใช้ callback requestAnimationFrame ของเบราว์เซอร์เพื่อนับว่าเรนเดอร์ได้กี่เฟรมต่อวินาที ทุกอย่างทำงานในเครื่องบนเบราว์เซอร์ของคุณ ไม่มีการอัปโหลด"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ทำไม FPS ของฉันจำกัดที่ 60?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "เบราว์เซอร์ซิงค์การวาดกับอัตรารีเฟรชของจอ จอ 60 Hz จะจำกัดเบราว์เซอร์ราว 60 FPS แม้ GPU จะวาดได้มากกว่า"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "FPS เบราว์เซอร์สูงแปลว่าเกม MuMu จะลื่นแน่ไหม?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "เป็นเพียงตัวแทนคร่าว ๆ ของประสิทธิภาพอุปกรณ์ ความลื่นของอีมูเลเตอร์ยังขึ้นกับ VT, CPU และแรมที่จัดสรร และโหมดเรนเดอร์กราฟิก"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "สเปกขั้นต่ำของ MuMu Player คืออะไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ตามข้อกำหนดทางการ: Windows 7 ขึ้นไป, CPU 4 คอร์อย่าง i5-7500 ที่เปิด VT, GPU ระดับ GTX 950 และแรม 4 GB"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ทำไม MuMu Player ถึงกระตุก?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "พบบ่อยสุดคือ VT ปิด, หน้าต่างได้คอร์หรือแรมน้อยเกินไป หรือโหมดเรนเดอร์ไม่เข้ากับ GPU คู่มือประสิทธิภาพที่ลิงก์ไว้อธิบายวิธีแก้แต่ละข้อ"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ได้ 120 FPS ใน MuMu Player ไหม?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "บางเกมรองรับโหมดเฟรมสูง คุณยังต้องมีจอ 120 Hz ขึ้นไปและ GPU ที่แรงพอจึงจะเห็นได้จริง"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "เครื่องมือนี้อัปโหลดข้อมูลของฉันไหม?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ไม่ การวัด FPS และการอ่านอุปกรณ์ทำงานทั้งหมดในเบราว์เซอร์และไม่เคยส่งไปยังเซิร์ฟเวอร์"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GPU แสดงเป็นซอฟต์แวร์หรือ SwiftShader หมายความว่าอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "เบราว์เซอร์ของคุณไม่ได้ใช้การเร่งด้วยฮาร์ดแวร์ เปิดในการตั้งค่าเบราว์เซอร์เพื่อให้อ่านค่าแม่นและอีมูเลเตอร์ลื่นขึ้น"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "วัด FPS ของฉัน (5 วิ)", "stop": "หยุด", "current": "ปัจจุบัน", "average": "เฉลี่ย", "min": "ต่ำสุด", "max": "สูงสุด", "hz": "พีค/Hz", "cores": "เธรด CPU", "mem": "หน่วยความจำ", "gpu": "GPU", "screen": "หน้าจอ", "v_pre": "อุปกรณ์ของคุณอยู่ราว ๆ ระดับ", "v_post": " เทียบกับตารางด้านล่างได้เลย", "t_entry": "เริ่มต้น", "t_main": "ทั่วไป", "t_high": "ระดับสูง"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <strong>ไทย</strong> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>ทดสอบ FPS / ประสิทธิภาพ MuMu Player</h1>
+<p class="intro">อยากรู้ไหมว่าพีซีเครื่องนี้เล่นเกม MuMu Player ได้ลื่นหรือเปล่า? เครื่องมือบนเบราว์เซอร์ฟรีนี้วัดเฟรมเรต (FPS) แบบเรียลไทม์ด้วย requestAnimationFrame และอ่านข้อมูลพื้นฐานของอุปกรณ์ — จำนวนเธรด CPU แรม และ GPU — เพื่อประเมินประสิทธิภาพอย่างรวดเร็ว ทุกอย่างทำงานในเครื่องและไม่มีการอัปโหลดข้อมูลใด ๆ</p>
+<div class="tool"><button id="btn">วัด FPS ของฉัน (5 วิ)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>ปัจจุบัน</label></div><div><span id="f_avg">-</span><label>เฉลี่ย</label></div><div><span id="f_min">-</span><label>ต่ำสุด</label></div><div><span id="f_max">-</span><label>สูงสุด</label></div><div><span id="f_hz">-</span><label>พีค/Hz</label></div></div><div class="dev"><span>เธรด CPU</span> <b id="d_cores">-</b> · <span>หน่วยความจำ</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>หน้าจอ</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">เคล็ดลับ: เปิดแท็บนี้ไว้ด้านหน้าระหว่างวัด FPS ของเบราว์เซอร์ถูกจำกัดด้วยอัตรารีเฟรชของจอ จึงเป็นแค่ค่าอ้างอิงเชิงเปรียบเทียบ ไม่ใช่ขีดสูงสุดของ GPU</p>
+<h2>ตัวเลข FPS ของคุณหมายความว่าอะไร</h2>
+<p>30 FPS คือขั้นต่ำที่พอเล่นได้ การขยับขึ้นเป็น 60 FPS คือก้าวที่รู้สึกถึงความลื่นได้ชัดที่สุด ส่วนเกิน 120 FPS ความต่างจะเล็กน้อย ที่ 60 FPS แต่ละเฟรมมีงบเวลาราว 16.7 มิลลิวินาที สิ่งใดที่ทำให้เฟรมสะดุดจะปรากฏเป็นอาการกระตุก</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="สเกลความรู้สึก FPS" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">สเกลความรู้สึก FPS</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">ตั้งแต่กระตุกจนถึงลื่นรีเฟรชสูง</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ กระตุก</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">ลื่นมาก ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">FPS ของเบราว์เซอร์ถูกจำกัดด้วยอัตรารีเฟรชของจอ (เช่น 60 Hz จะจำกัดราว 60)</text></svg><figcaption>รูปที่ 1: แต่ละช่วงเฟรมเรตให้ความรู้สึกอย่างไรเวลาภาพเคลื่อนไหว</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>ความรู้สึก</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>กระตุกชัด เล็งหรือเลื่อนไม่ลื่น</td></tr><tr><td class="fpsv">30–45</td><td>พอเล่นได้ เหมาะกับเกมแคชวลและแบบผลัดตา</td></tr><tr><td class="fpsv">60</td><td>ลื่น เป็นเป้าหมายที่สบายสำหรับเกมส่วนใหญ่</td></tr><tr><td class="fpsv">90–120</td><td>ลื่นมาก ต้องใช้จอ 120 Hz ขึ้นไปและ GPU แรง</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="แบนเนอร์ทดสอบ FPS และประสิทธิภาพ MuMu Player" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>เครื่องมือวัด FPS และตรวจอุปกรณ์ฟรีฝั่งไคลเอนต์ทั้งหมดสำหรับ MuMu Player</figcaption></figure>
+<h2>MuMu Player จะลื่นบนพีซีของคุณไหม?</h2>
+<p>MuMu Player ต้องการอย่างน้อย CPU 4 คอร์ที่เปิด VT, แรม 4 GB และ GPU ระดับ GTX 950 อาการกระตุกส่วนใหญ่มาจาก VT ปิดอยู่ จัดสรร CPU หรือแรมให้น้อยเกินไป หรือโหมดเรนเดอร์กราฟิกไม่เหมาะ —  <a href="https://playermumu.com/performance/">คู่มือปรับแต่งประสิทธิภาพและตั้งค่าเฟรมสูงของ MuMu</a> อธิบายวิธีแก้แต่ละข้อทีละขั้น</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="อุปกรณ์ของคุณรัน MuMu ลื่นไหม?" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">อุปกรณ์ของคุณรัน MuMu ลื่นไหม?</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / อุปกรณ์</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">FPS และสเปกพอไหม?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">น่าจะลื่น</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">น่าจะกระตุก</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">สามสิ่งที่กำหนด FPS ของอีมูเลเตอร์</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">เปิดใน BIOS</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">จัดสรรคอร์ / แรม</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">เปิดโหมดเฟรมสูง</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>รูปที่ 2: จากการเช็กตัวเองอย่างเร็ว สู่สามคันโยกที่ควบคุมเฟรมเรตของ MuMu</figcaption></figure>
+<h3>ระดับอุปกรณ์และ FPS ทั่วไปของ MuMu</h3>
+<table class="ref"><thead><tr><th>ระดับ</th><th>คอร์ / แรม</th><th>GPU</th><th>FPS ทั่วไป</th><th>เหมาะกับ</th></tr></thead><tbody><tr><td><b>เริ่มต้น</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>เกมแคชวล การ์ด และ 2D ที่กราฟิกต่ำถึงกลาง</td></tr><tr><td><b>ทั่วไป</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>เกม 3D ส่วนใหญ่ที่ 60 FPS กราฟิกสูง</td></tr><tr><td><b>ระดับสูง</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>เกมยิงแข่งขัน โหมดเฟรมสูง และเปิดหลายหน้าต่าง</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="กราฟแท่ง FPS ทั่วไปของ MuMu ตามระดับอุปกรณ์" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>FPS ทั่วไปในอีมูเลเตอร์เพิ่มขึ้นตามระดับ CPU แรม และ GPU (ประมาณการ 2026)</figcaption></figure>
+<h2>เช็กเร็วจากสถานการณ์จริง</h2>
+<ul class="scenes"><li>เบราว์เซอร์จำกัดที่ 60 FPS ทั้งที่ GPU แรง? นั่นคืออัตรารีเฟรชจอหรือการจำกัดของเบราว์เซอร์ ไม่ใช่ขีดจำกัดของอีมูเลเตอร์</li><li>ลื่นบนเบราว์เซอร์แต่กระตุกใน MuMu? ตรวจว่าเปิด VT (เวอร์ชวลไลเซชัน) ใน BIOS แล้วหรือยัง — เป็นสาเหตุที่พบบ่อยที่สุด</li><li>กระตุกตอนเปิดหลายหน้าต่าง: ลดคอร์และแรมต่อหน้าต่าง หรือเปิดพร้อมกันน้อยลง</li><li>โหลดกระตุกบนฮาร์ดดิสก์จานหมุนเก่า? ติดตั้ง MuMu Player ลง SSD</li><li>GPU แสดงเป็น SwiftShader หรือซอฟต์แวร์? แสดงว่าการเร่งด้วยฮาร์ดแวร์ปิดอยู่ เปิดเพื่อให้อ่านค่าแม่นและเกมลื่นขึ้น</li></ul>
+<section id="i4data"><h2>ประมาณการ 2026: FPS ทั่วไปของเกมตามระดับ</h2>
+<p>ตารางด้านล่างเป็นประมาณการปี 2026 (ไม่ใช่การวัดโดยตรง) ของ FPS ทั่วไปในอีมูเลเตอร์สำหรับแนวเกม Android ยอดนิยมในสามระดับอุปกรณ์</p>
+<table class="ref"><thead><tr><th>แนวเกม</th><th>เริ่มต้น</th><th>ทั่วไป</th><th>ระดับสูง</th></tr></thead><tbody><tr><td>การ์ด / แคชวล / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>RPG โลกเปิด 3D</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>เกมยิงแข่งขัน / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">เป็นเพียงประมาณการ ไม่ใช่การวัดโดยตรง FPS จริงแปรผันตามเกมแต่ละเกม การตั้งค่ากราฟิก โหมดเรนเดอร์ของ MuMu และจำนวนหน้าต่างที่เปิดพร้อมกัน</p></section>
+<h2>คำถามที่พบบ่อย</h2>
+<div class="faq"><details><summary>การทดสอบ FPS นี้ทำงานอย่างไร?</summary><div class="ans">มันใช้ callback requestAnimationFrame ของเบราว์เซอร์เพื่อนับว่าเรนเดอร์ได้กี่เฟรมต่อวินาที ทุกอย่างทำงานในเครื่องบนเบราว์เซอร์ของคุณ ไม่มีการอัปโหลด</div></details>
+<details><summary>ทำไม FPS ของฉันจำกัดที่ 60?</summary><div class="ans">เบราว์เซอร์ซิงค์การวาดกับอัตรารีเฟรชของจอ จอ 60 Hz จะจำกัดเบราว์เซอร์ราว 60 FPS แม้ GPU จะวาดได้มากกว่า</div></details>
+<details><summary>FPS เบราว์เซอร์สูงแปลว่าเกม MuMu จะลื่นแน่ไหม?</summary><div class="ans">เป็นเพียงตัวแทนคร่าว ๆ ของประสิทธิภาพอุปกรณ์ ความลื่นของอีมูเลเตอร์ยังขึ้นกับ VT, CPU และแรมที่จัดสรร และโหมดเรนเดอร์กราฟิก</div></details>
+<details><summary>สเปกขั้นต่ำของ MuMu Player คืออะไร?</summary><div class="ans">ตามข้อกำหนดทางการ: Windows 7 ขึ้นไป, CPU 4 คอร์อย่าง i5-7500 ที่เปิด VT, GPU ระดับ GTX 950 และแรม 4 GB</div></details>
+<details><summary>ทำไม MuMu Player ถึงกระตุก?</summary><div class="ans">พบบ่อยสุดคือ VT ปิด, หน้าต่างได้คอร์หรือแรมน้อยเกินไป หรือโหมดเรนเดอร์ไม่เข้ากับ GPU คู่มือประสิทธิภาพที่ลิงก์ไว้อธิบายวิธีแก้แต่ละข้อ</div></details>
+<details><summary>ได้ 120 FPS ใน MuMu Player ไหม?</summary><div class="ans">บางเกมรองรับโหมดเฟรมสูง คุณยังต้องมีจอ 120 Hz ขึ้นไปและ GPU ที่แรงพอจึงจะเห็นได้จริง</div></details>
+<details><summary>เครื่องมือนี้อัปโหลดข้อมูลของฉันไหม?</summary><div class="ans">ไม่ การวัด FPS และการอ่านอุปกรณ์ทำงานทั้งหมดในเบราว์เซอร์และไม่เคยส่งไปยังเซิร์ฟเวอร์</div></details>
+<details><summary>GPU แสดงเป็นซอฟต์แวร์หรือ SwiftShader หมายความว่าอย่างไร?</summary><div class="ans">เบราว์เซอร์ของคุณไม่ได้ใช้การเร่งด้วยฮาร์ดแวร์ เปิดในการตั้งค่าเบราว์เซอร์เพื่อให้อ่านค่าแม่นและอีมูเลเตอร์ลื่นขึ้น</div></details>
+</div>
+<div class="related"><h2>แหล่งอ้างอิงและผู้เขียน</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">เว็บไซต์ทางการ MuMu Player</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">ข้อกำหนดระบบ MuMu Player (ทางการ)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">เกี่ยวกับผู้เขียน: Su Hang</a></li>
+</ul></div>
+</main>
+<footer>ข้อมูลรวบรวมจากข้อกำหนดทางการของ MuMu Player และเอกสารเฟรมเรตสาธารณะ ใช้เพื่ออ้างอิงเท่านั้น<br>อัปเดตมิถุนายน 2026 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

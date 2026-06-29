@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>MuMu 模擬器 FPS 幀率測試 — 瀏覽器實時幀率檢測</title>
+<meta name="description" content="免費線上 FPS 幀率檢測 + 裝置效能速測，專為 MuMu Player 玩家。實時測當前幀率，讀取 CPU、記憶體與 GPU，判斷安卓遊戲在模擬器裡跑不跑得流暢。">
+<link rel="canonical" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "MuMu 模擬器 FPS 幀率測試 — 瀏覽器實時幀率檢測",
+   "url": "https://deffreeze.github.io/zh-tw/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "zh-Hant",
+   "description": "免費線上 FPS 幀率檢測 + 裝置效能速測，專為 MuMu Player 玩家。實時測當前幀率，讀取 CPU、記憶體與 GPU，判斷安卓遊戲在模擬器裡跑不跑得流暢。",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-Hant",
+   "url": "https://deffreeze.github.io/zh-tw/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "這個 FPS 測試怎麼工作的？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "它用瀏覽器的 requestAnimationFrame 回撥統計每秒渲染了多少幀，全程在你本地瀏覽器執行，不上傳任何資料。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "為什麼我的幀率封在 60？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "瀏覽器把繪製同步到顯示器重新整理率，60Hz 螢幕會把瀏覽器封在約 60 FPS，即使顯示卡能畫更多。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "瀏覽器幀率高，MuMu 遊戲就一定順嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "它只是裝置效能的粗略參考。模擬器實際是否流暢，還取決於 VT、你分配的 CPU 與記憶體、以及顯示卡渲染模式。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player 的最低配置是什麼？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "按官方需求：Windows 7 及以上、i5-7500 這類 4 核 CPU 並開啟 VT、GTX 950 級別顯示卡、4 GB 記憶體。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player 為什麼卡頓？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "最常見是沒開 VT、例項分配的核心或記憶體太少、或渲染模式不適合你的顯示卡。文中連結的效能指南逐項講了怎麼修。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player 能跑到 120 FPS 嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "部分遊戲支援高幀模式，但還需要 120Hz 及以上的螢幕和夠強的顯示卡才真能看到。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "這個工具會上傳我的資料嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不會。幀率測量與裝置讀取全在你的瀏覽器裡完成，絕不傳送到伺服器。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "顯示卡顯示成軟體或 SwiftShader 是什麼意思？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "說明瀏覽器沒用硬體加速。在瀏覽器設定裡開啟它，讀數才準、模擬器也更流暢。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "測我的幀率（5 秒）", "stop": "停止", "current": "當前", "average": "平均", "min": "最低", "max": "最高", "hz": "峰值/Hz", "cores": "CPU 執行緒", "mem": "記憶體", "gpu": "顯示卡", "screen": "螢幕", "v_pre": "你的裝置大致屬於", "v_post": "檔，可對照下表估算 MuMu 表現。", "t_entry": "入門", "t_main": "主流", "t_high": "高效能"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <strong>繁體中文</strong> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>MuMu 模擬器 FPS 幀率 / 效能測試</h1>
+<p class="intro">想知道這臺電腦跑 MuMu Player 遊戲順不順？這個免費網頁工具用 requestAnimationFrame 實時測量當前幀率（FPS），並讀取裝置基本資訊——CPU 執行緒數、記憶體、GPU——給出快速的效能評估。全部在本地瀏覽器執行，不上傳任何資料。</p>
+<div class="tool"><button id="btn">測我的幀率（5 秒）</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>當前</label></div><div><span id="f_avg">-</span><label>平均</label></div><div><span id="f_min">-</span><label>最低</label></div><div><span id="f_max">-</span><label>最高</label></div><div><span id="f_hz">-</span><label>峰值/Hz</label></div></div><div class="dev"><span>CPU 執行緒</span> <b id="d_cores">-</b> · <span>記憶體</span> <b id="d_mem">-</b> · <span>顯示卡</span> <b id="d_gpu">-</b> · <span>螢幕</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">提示：測量時保持本標籤頁在前臺。瀏覽器幀率受顯示器重新整理率限制，只能作相對參考，並非顯示卡上限。</p>
+<h2>你的 FPS 數字代表什麼</h2>
+<p>30 FPS 是「能玩」的下限；提升到 60 FPS 是流暢度上最明顯的一跳；超過 120 FPS 後差別就很細微了。60 FPS 時每幀只有約 16.7 毫秒的預算，任何卡住一幀的動作都會被看成卡頓。</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPS 體感刻度" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">FPS 體感刻度</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">從卡頓到高刷順滑</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ 卡頓</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">極致順滑 ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">瀏覽器幀率受顯示器重新整理率封頂（如 60Hz 約封在 60）。</text></svg><figcaption>圖 1：各幀率區間在動態畫面裡的實際體感。</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>體感</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>明顯示卡頓，瞄準、滑動都不跟手。</td></tr><tr><td class="fpsv">30–45</td><td>可玩，休閒與回合制遊戲夠用。</td></tr><tr><td class="fpsv">60</td><td>流暢，多數遊戲的舒適目標。</td></tr><tr><td class="fpsv">90–120</td><td>極致順滑，需要 120Hz+ 螢幕與強顯示卡。</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="MuMu 模擬器 FPS 與效能測試橫幅" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>面向 MuMu Player 的免費純客戶端 FPS 檢測與裝置速測。</figcaption></figure>
+<h2>MuMu Player 在你電腦上跑得流暢嗎？</h2>
+<p>MuMu Player 至少需要 4 核 CPU 並開啟 VT、4 GB 記憶體、以及 GTX 950 級別的顯示卡。卡頓大多來自 VT 沒開、給模擬器分配的 CPU 或記憶體太少、或顯示卡渲染模式不對—— <a href="https://playermumu.com/performance/">MuMu 效能最佳化與高幀設定指南</a> 裡逐項講了怎麼修。</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="你的裝置能流暢跑 MuMu 嗎？" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">你的裝置能流暢跑 MuMu 嗎？</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / 裝置</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">幀率與配置夠嗎？</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">大機率流暢</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">大機率卡頓</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">決定模擬器幀率的三件事</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">進 BIOS 開啟</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">分配核心 / 記憶體</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">開啟高幀模式</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>圖 2：從一次自檢，到掌控 MuMu 幀率的三個開關。</figcaption></figure>
+<h3>裝置檔位 → MuMu 典型幀率</h3>
+<table class="ref"><thead><tr><th>檔位</th><th>核心 / 記憶體</th><th>顯示卡</th><th>典型幀率</th><th>適合</th></tr></thead><tbody><tr><td><b>入門</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>休閒、卡牌、2D 遊戲，中低畫質。</td></tr><tr><td><b>主流</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>多數 3D 手遊 60 FPS、高畫質。</td></tr><tr><td><b>高效能</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>射擊競技、高幀模式、多開。</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="按裝置檔位的 MuMu 典型幀率柱狀圖" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>典型模擬器幀率隨 CPU、記憶體、顯示卡檔次提升（2026 估算）。</figcaption></figure>
+<h2>真實場景速判</h2>
+<ul class="scenes"><li>瀏覽器封在 60 FPS 但顯示卡很強？那是顯示器重新整理率或瀏覽器節流，不是模擬器上限。</li><li>瀏覽器順、MuMu 裡卻卡？先確認 BIOS 裡開了 VT（虛擬化）——這是最常見的原因。</li><li>多開卡頓：調低每個例項的核心與記憶體，或少開幾個。</li><li>機械硬碟載入卡頓？把 MuMu Player 裝到固態硬碟（SSD）。</li><li>顯示卡顯示成 SwiftShader 或軟體渲染？說明硬體加速沒開，開了讀數才準、遊戲也更順。</li></ul>
+<section id="i4data"><h2>2026 估算：各檔位主流遊戲的典型幀率</h2>
+<p>下表是 2026 年的估算（非一手實測），列出主流安卓遊戲題材在三個裝置檔位下的模擬器典型幀率。</p>
+<table class="ref"><thead><tr><th>遊戲題材</th><th>入門</th><th>主流</th><th>高效能</th></tr></thead><tbody><tr><td>卡牌 / 休閒 / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>3D 開放世界 RPG</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>競技射擊 / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">僅為估算、非一手實測。實際幀率隨具體遊戲、畫質設定、MuMu 渲染模式與同時多開數量而變。</p></section>
+<h2>常見問題</h2>
+<div class="faq"><details><summary>這個 FPS 測試怎麼工作的？</summary><div class="ans">它用瀏覽器的 requestAnimationFrame 回撥統計每秒渲染了多少幀，全程在你本地瀏覽器執行，不上傳任何資料。</div></details>
+<details><summary>為什麼我的幀率封在 60？</summary><div class="ans">瀏覽器把繪製同步到顯示器重新整理率，60Hz 螢幕會把瀏覽器封在約 60 FPS，即使顯示卡能畫更多。</div></details>
+<details><summary>瀏覽器幀率高，MuMu 遊戲就一定順嗎？</summary><div class="ans">它只是裝置效能的粗略參考。模擬器實際是否流暢，還取決於 VT、你分配的 CPU 與記憶體、以及顯示卡渲染模式。</div></details>
+<details><summary>MuMu Player 的最低配置是什麼？</summary><div class="ans">按官方需求：Windows 7 及以上、i5-7500 這類 4 核 CPU 並開啟 VT、GTX 950 級別顯示卡、4 GB 記憶體。</div></details>
+<details><summary>MuMu Player 為什麼卡頓？</summary><div class="ans">最常見是沒開 VT、例項分配的核心或記憶體太少、或渲染模式不適合你的顯示卡。文中連結的效能指南逐項講了怎麼修。</div></details>
+<details><summary>MuMu Player 能跑到 120 FPS 嗎？</summary><div class="ans">部分遊戲支援高幀模式，但還需要 120Hz 及以上的螢幕和夠強的顯示卡才真能看到。</div></details>
+<details><summary>這個工具會上傳我的資料嗎？</summary><div class="ans">不會。幀率測量與裝置讀取全在你的瀏覽器裡完成，絕不傳送到伺服器。</div></details>
+<details><summary>顯示卡顯示成軟體或 SwiftShader 是什麼意思？</summary><div class="ans">說明瀏覽器沒用硬體加速。在瀏覽器設定裡開啟它，讀數才準、模擬器也更流暢。</div></details>
+</div>
+<div class="related"><h2>來源與作者</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">MuMu Player 官網</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">MuMu Player 官方系統需求</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN：requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">關於作者：蘇航</a></li>
+</ul></div>
+</main>
+<footer>資料整理自 MuMu Player 官方配置需求與公開幀率資料，僅供參考。<br>2026 年 6 月更新 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

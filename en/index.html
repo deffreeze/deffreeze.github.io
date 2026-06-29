@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>MuMu Player FPS & Performance Test — Live Frame-Rate Meter</title>
+<meta name="description" content="Free browser FPS meter and quick device check for MuMu Player. Measure your live frame rate, read your CPU, RAM and GPU, and gauge whether Android games run smoothly in the emulator.">
+<link rel="canonical" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "MuMu Player FPS & Performance Test — Live Frame-Rate Meter",
+   "url": "https://deffreeze.github.io/en/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "en",
+   "description": "Free browser FPS meter and quick device check for MuMu Player. Measure your live frame rate, read your CPU, RAM and GPU, and gauge whether Android games run smoothly in the emulator.",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "en",
+   "url": "https://deffreeze.github.io/en/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How does this FPS test work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It uses the browser requestAnimationFrame callback to count how many frames render each second. All of it runs locally in your browser; nothing is uploaded."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my FPS capped at 60?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Browsers synchronise drawing to your display refresh rate. A 60 Hz screen caps the browser near 60 FPS even when your GPU could draw more."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does a high browser FPS mean MuMu games will be smooth?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is a rough proxy for device performance. Actual emulator smoothness also depends on VT, the CPU and RAM you allocate, and the graphics rendering mode."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What are the MuMu Player minimum requirements?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Windows 7 or newer, a 4-core CPU such as the i5-7500 with VT enabled, a GTX 950-class GPU and 4 GB of RAM, per the official requirements."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is MuMu Player stuttering?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most often VT is disabled, the instance has too few cores or too little RAM, or the graphics rendering mode does not suit your GPU. The linked performance guide covers each fix."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I reach 120 FPS in MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Some games support a high-FPS mode. You also need a 120 Hz or faster display and a capable GPU to actually see it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does this tool upload any data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The FPS measurement and device read-out run entirely in your browser and are never sent to a server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My GPU shows as software or SwiftShader — what does that mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your browser is not using hardware acceleration. Turn it on in browser settings for an accurate reading and smoother emulator performance."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "Measure my FPS (5s)", "stop": "Stop", "current": "Current", "average": "Average", "min": "Min", "max": "Max", "hz": "Peak/Hz", "cores": "CPU threads", "mem": "Memory", "gpu": "GPU", "screen": "Screen", "v_pre": "Your device looks like the", "v_post": "tier for emulator gaming. Compare it against the table below.", "t_entry": "Entry", "t_main": "Mainstream", "t_high": "High-end"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <strong>English</strong> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>MuMu Player FPS & Performance Test</h1>
+<p class="intro">Wondering whether your PC can run MuMu Player games smoothly? This free browser tool measures your live frame rate (FPS) with requestAnimationFrame and reads your device basics — CPU threads, memory and GPU — for a quick performance estimate. Everything runs locally and nothing is uploaded.</p>
+<div class="tool"><button id="btn">Measure my FPS (5s)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>Current</label></div><div><span id="f_avg">-</span><label>Average</label></div><div><span id="f_min">-</span><label>Min</label></div><div><span id="f_max">-</span><label>Max</label></div><div><span id="f_hz">-</span><label>Peak/Hz</label></div></div><div class="dev"><span>CPU threads</span> <b id="d_cores">-</b> · <span>Memory</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>Screen</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">Tip: keep this tab active while measuring. Browser FPS is limited by your display refresh rate, so it is a relative guide, not your GPU maximum.</p>
+<h2>What your FPS number means</h2>
+<p>30 FPS is the floor for playable; moving to 60 FPS is the single most noticeable jump in smoothness, while gains beyond 120 FPS are subtle. At 60 FPS each frame has only about a 16.7 ms budget, so anything that stalls the frame shows up as a stutter.</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPS feel scale" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">FPS feel scale</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">from stutter to high-refresh smooth</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ Stutter</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">Ultra smooth ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">Browser FPS is capped by your display refresh rate (for example 60 Hz caps it near 60).</text></svg><figcaption>Fig 1: how each frame-rate band actually feels in motion.</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>How it feels</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>Visible stutter; hard to aim or scroll smoothly.</td></tr><tr><td class="fpsv">30–45</td><td>Playable; fine for casual and turn-based games.</td></tr><tr><td class="fpsv">60</td><td>Smooth; the comfortable target for most games.</td></tr><tr><td class="fpsv">90–120</td><td>Ultra smooth; needs a 120 Hz+ screen and a strong GPU.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="MuMu Player FPS and performance test banner" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>A free, client-side FPS meter and device check for MuMu Player.</figcaption></figure>
+<h2>Will MuMu Player run smoothly on your PC?</h2>
+<p>MuMu Player needs at least a 4-core CPU with VT enabled, 4 GB of RAM and a GTX 950-class GPU. Most stutter comes from VT being switched off, too little CPU or RAM allocated to the instance, or the wrong graphics rendering mode — the <a href="https://playermumu.com/performance/">MuMu performance and high-FPS guide</a> walks through each fix step by step.</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Can your device run MuMu smoothly?" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Can your device run MuMu smoothly?</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / device</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Browser FPS and specs OK?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">Likely smooth</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">Likely laggy</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Three things that decide emulator FPS</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">Enable in BIOS</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">Allocate cores / RAM</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">Turn on high-FPS mode</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Fig 2: from a quick self-check to the three levers that control MuMu frame rate.</figcaption></figure>
+<h3>Device tier and typical MuMu frame rate</h3>
+<table class="ref"><thead><tr><th>Tier</th><th>Cores / RAM</th><th>GPU</th><th>Typical FPS</th><th>Best for</th></tr></thead><tbody><tr><td><b>Entry</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>Casual, card and 2D games at low to medium graphics.</td></tr><tr><td><b>Mainstream</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>Most 3D mobile games at 60 FPS, high graphics.</td></tr><tr><td><b>High-end</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>Competitive shooters, high-FPS mode and multi-instance.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="Bar chart of typical MuMu frame rate by device tier" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>Typical in-emulator frame rate rises with CPU, RAM and GPU class (2026 estimate).</figcaption></figure>
+<h2>Quick real-world checks</h2>
+<ul class="scenes"><li>Browser caps at 60 FPS but your GPU is strong? That is your monitor refresh rate or browser throttling, not the emulator limit.</li><li>Smooth in the browser yet laggy in MuMu? Check that VT (virtualization) is enabled in BIOS — it is the most common cause.</li><li>Multi-instance stutter: lower the cores and RAM per instance, or run fewer instances at once.</li><li>Long load stutters on an old mechanical drive? Install MuMu Player on an SSD.</li><li>GPU shows as SwiftShader or software? Hardware acceleration is off; enable it for an accurate reading and better game performance.</li></ul>
+<section id="i4data"><h2>2026 estimate: typical game frame rates by tier</h2>
+<p>The table below is a 2026 estimate (not a first-hand benchmark) of typical in-emulator frame rates for popular Android game genres across the three device tiers.</p>
+<table class="ref"><thead><tr><th>Game genre</th><th>Entry</th><th>Mainstream</th><th>High-end</th></tr></thead><tbody><tr><td>Card / casual / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>3D open-world RPG</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>Competitive shooter / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">Estimate only, not a first-hand benchmark. Real frame rates vary with the specific game, in-game graphics settings, MuMu rendering mode and how many instances run at once.</p></section>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>How does this FPS test work?</summary><div class="ans">It uses the browser requestAnimationFrame callback to count how many frames render each second. All of it runs locally in your browser; nothing is uploaded.</div></details>
+<details><summary>Why is my FPS capped at 60?</summary><div class="ans">Browsers synchronise drawing to your display refresh rate. A 60 Hz screen caps the browser near 60 FPS even when your GPU could draw more.</div></details>
+<details><summary>Does a high browser FPS mean MuMu games will be smooth?</summary><div class="ans">It is a rough proxy for device performance. Actual emulator smoothness also depends on VT, the CPU and RAM you allocate, and the graphics rendering mode.</div></details>
+<details><summary>What are the MuMu Player minimum requirements?</summary><div class="ans">Windows 7 or newer, a 4-core CPU such as the i5-7500 with VT enabled, a GTX 950-class GPU and 4 GB of RAM, per the official requirements.</div></details>
+<details><summary>Why is MuMu Player stuttering?</summary><div class="ans">Most often VT is disabled, the instance has too few cores or too little RAM, or the graphics rendering mode does not suit your GPU. The linked performance guide covers each fix.</div></details>
+<details><summary>Can I reach 120 FPS in MuMu Player?</summary><div class="ans">Some games support a high-FPS mode. You also need a 120 Hz or faster display and a capable GPU to actually see it.</div></details>
+<details><summary>Does this tool upload any data?</summary><div class="ans">No. The FPS measurement and device read-out run entirely in your browser and are never sent to a server.</div></details>
+<details><summary>My GPU shows as software or SwiftShader — what does that mean?</summary><div class="ans">Your browser is not using hardware acceleration. Turn it on in browser settings for an accurate reading and smoother emulator performance.</div></details>
+</div>
+<div class="related"><h2>Sources and author</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">MuMu Player official site</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">MuMu Player system requirements (official)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">About the author: Su Hang</a></li>
+</ul></div>
+</main>
+<footer>Data compiled from MuMu Player official requirements and public frame-rate references; for reference only.<br>Updated June 2026 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

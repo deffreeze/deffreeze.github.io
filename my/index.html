@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="my"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>MuMu Player FPS နှင့် စွမ်းဆောင်ရည် စမ်းသပ်ချက် — တိုက်ရိုက် ဖရိမ်နှုန်း တိုင်းတာကိရိယာ</title>
+<meta name="description" content="MuMu Player အတွက် အခမဲ့ ဘရောက်ဆာအခြေပြု FPS တိုင်းတာကိရိယာနှင့် မြန်ဆန်သော စက်ပစ္စည်းစစ်ဆေးမှု။ တိုက်ရိုက် ဖရိမ်နှုန်းကို တိုင်းတာပြီး CPU, RAM နှင့် GPU ကိုဖတ်ကာ Android ဂိမ်းများ emulator တွင် ချောမွေ့စွာ အလုပ်လုပ်မလားဆိုသည်ကို ခန့်မှန်းပါ။">
+<link rel="canonical" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "MuMu Player FPS နှင့် စွမ်းဆောင်ရည် စမ်းသပ်ချက် — တိုက်ရိုက် ဖရိမ်နှုန်း တိုင်းတာကိရိယာ",
+   "url": "https://deffreeze.github.io/my/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "my",
+   "description": "MuMu Player အတွက် အခမဲ့ ဘရောက်ဆာအခြေပြု FPS တိုင်းတာကိရိယာနှင့် မြန်ဆန်သော စက်ပစ္စည်းစစ်ဆေးမှု။ တိုက်ရိုက် ဖရိမ်နှုန်းကို တိုင်းတာပြီး CPU, RAM နှင့် GPU ကိုဖတ်ကာ Android ဂိမ်းများ emulator တွင် ချောမွေ့စွာ အလုပ်လုပ်မလားဆိုသည်ကို ခန့်မှန်းပါ။",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "my",
+   "url": "https://deffreeze.github.io/my/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "ဤ FPS စမ်းသပ်ချက် မည်သို့ အလုပ်လုပ်သနည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "၎င်းသည် ဘရောက်ဆာ၏ requestAnimationFrame callback ကိုသုံး၍ တစ်စက္ကန့်လျှင် မည်မျှ ဖရိမ် render လုပ်သည်ကို ရေတွက်သည်။ အရာအားလုံး သင့်ဘရောက်ဆာတွင် စက်တွင်း၌ အလုပ်လုပ်ပြီး ဘာမှ မတင်ပါ။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ကျွန်ုပ်၏ FPS သည် အဘယ်ကြောင့် 60 ၌ ကန့်သတ်နေသနည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ဘရောက်ဆာသည် ပုံဆွဲမှုကို ဖန်သားပြင် refresh rate နှင့် sync လုပ်သည်။ 60 Hz ဖန်သားပြင်သည် GPU က ပိုဆွဲနိုင်သော်လည်း ဘရောက်ဆာကို 60 FPS ခန့်၌ ကန့်သတ်သည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ဘရောက်ဆာ FPS မြင့်ခြင်းက MuMu ဂိမ်း သေချာ ချောမွေ့မည်ဟု ဆိုလိုသလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "၎င်းသည် စက်ပစ္စည်း စွမ်းဆောင်ရည်၏ ကြမ်းတမ်းသော ခန့်မှန်းချက်သာ။ emulator ၏ ချောမွေ့မှုသည် VT, သင်ခွဲဝေသော CPU နှင့် RAM နှင့် graphics rendering mode ပေါ်လည်း မူတည်သည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player ၏ အနိမ့်ဆုံး လိုအပ်ချက်များက အဘယ်နည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "တရားဝင် လိုအပ်ချက်အရ— Windows 7 အထက်၊ VT ဖွင့်ထားသော i5-7500 ကဲ့သို့ 4 core CPU, GTX 950 အဆင့် GPU နှင့် RAM 4 GB။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player အဘယ်ကြောင့် ထစ်သနည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "အဖြစ်များဆုံးမှာ VT ပိတ်ထားခြင်း၊ instance တွင် core သို့မဟုတ် RAM နည်းလွန်းခြင်း၊ သို့မဟုတ် rendering mode သည် GPU နှင့် မကိုက်ညီခြင်း။ ချိတ်ဆက်ထားသော စွမ်းဆောင်ရည် လမ်းညွှန်က ဖြေရှင်းချက်တစ်ခုစီကို ရှင်းပြသည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MuMu Player တွင် 120 FPS ရနိုင်သလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "အချို့ဂိမ်းများ FPS မြင့် mode ကို ထောက်ပံ့သည်။ အမှန်တကယ်မြင်ရရန် 120 Hz အထက် ဖန်သားပြင်နှင့် စွမ်းဆောင်ရည်ပြည့် GPU လည်း လိုသည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ဤကိရိယာသည် ကျွန်ုပ်၏ ဒေတာကို တင်သလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "မတင်ပါ။ FPS တိုင်းတာမှုနှင့် စက်ဖတ်မှုသည် ဘရောက်ဆာတွင်းတွင်သာ အလုပ်လုပ်ပြီး server သို့ ဘယ်တော့မှ မပို့ပါ။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ကျွန်ုပ်၏ GPU သည် software သို့မဟုတ် SwiftShader အဖြစ် ပြသခြင်းသည် ဘာကိုဆိုလိုသနည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "သင့်ဘရောက်ဆာသည် hardware acceleration မသုံးပါ။ တိကျသော ဖတ်မှုနှင့် emulator ပိုချောမွေ့စေရန် ဘရောက်ဆာ ဆက်တင်တွင် ၎င်းကို ဖွင့်ပါ။"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "ကျွန်ုပ်၏ FPS ကို တိုင်းပါ (5s)", "stop": "ရပ်ပါ", "current": "လက်ရှိ", "average": "ပျမ်းမျှ", "min": "အနိမ့်ဆုံး", "max": "အမြင့်ဆုံး", "hz": "အမြင့်ဆုံး/Hz", "cores": "CPU thread", "mem": "Memory", "gpu": "GPU", "screen": "ဖန်သားပြင်", "v_pre": "သင့်စက်ပစ္စည်းသည် ခန့်မှန်းခြေအားဖြင့်", "v_post": " အဆင့်ဖြစ်သည်။ အောက်ဇယားနှင့် နှိုင်းယှဉ်ပါ။", "t_entry": "အခြေခံ", "t_main": "ပုံမှန်", "t_high": "အဆင့်မြင့်"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <strong>မြန်မာ</strong></nav>
+<h1>MuMu Player FPS / စွမ်းဆောင်ရည် စမ်းသပ်ချက်</h1>
+<p class="intro">ဤကွန်ပျူတာသည် MuMu Player ဂိမ်းများကို ချောမွေ့စွာ ဖွင့်နိုင်မလားဟု သိချင်ပါသလား။ ဤအခမဲ့ ဘရောက်ဆာကိရိယာသည် requestAnimationFrame ဖြင့် သင့်ဖရိမ်နှုန်း (FPS) ကို တိုက်ရိုက်တိုင်းတာပြီး စက်ပစ္စည်း၏ အခြေခံအချက်များ — CPU thread အရေအတွက်၊ memory နှင့် GPU — ကိုဖတ်ကာ စွမ်းဆောင်ရည်ကို မြန်ဆန်စွာ ခန့်မှန်းပေးသည်။ အရာအားလုံး စက်တွင်း၌ အလုပ်လုပ်ပြီး ဒေတာတင်ခြင်း လုံးဝမရှိပါ။</p>
+<div class="tool"><button id="btn">ကျွန်ုပ်၏ FPS ကို တိုင်းပါ (5s)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>လက်ရှိ</label></div><div><span id="f_avg">-</span><label>ပျမ်းမျှ</label></div><div><span id="f_min">-</span><label>အနိမ့်ဆုံး</label></div><div><span id="f_max">-</span><label>အမြင့်ဆုံး</label></div><div><span id="f_hz">-</span><label>အမြင့်ဆုံး/Hz</label></div></div><div class="dev"><span>CPU thread</span> <b id="d_cores">-</b> · <span>Memory</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>ဖန်သားပြင်</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">အကြံပြုချက်— တိုင်းတာနေစဉ် ဤtab ကို ရှေ့တွင်ထားပါ။ ဘရောက်ဆာ၏ FPS သည် ဖန်သားပြင်၏ refresh rate ဖြင့် ကန့်သတ်ထားသဖြင့် နှိုင်းယှဉ်ရန်သာဖြစ်ပြီး GPU ၏ အမြင့်ဆုံးကန့်သတ်ချက် မဟုတ်ပါ။</p>
+<h2>သင့် FPS ဂဏန်း၏ အဓိပ္ပာယ်</h2>
+<p>30 FPS သည် ကစားနိုင်သော အနိမ့်ဆုံးဖြစ်ပြီး 60 FPS သို့ တက်ခြင်းသည် ချောမွေ့မှုတွင် အသိသာဆုံး တိုးတက်မှုဖြစ်သည်။ 120 FPS ကျော်လျှင် ကွာခြားမှု နည်းသွားသည်။ 60 FPS တွင် ဖရိမ်တစ်ခုစီ၌ ၁၆.၇ မီလီစက္ကန့်ခန့်သာ ရှိသဖြင့် ဖရိမ်တစ်ခုကို ရပ်တန့်စေသည့်အရာသည် ထစ်ထစ်ငေါ့ငေါ့အဖြစ် ပေါ်လာသည်။</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPS ခံစားမှု စကေး" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">FPS ခံစားမှု စကေး</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">ထစ်ထစ်ငေါ့ငေါ့မှ refresh မြင့် ချောမွေ့မှုအထိ</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ ထစ်သည်</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">အလွန်ချောမွေ့ ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">ဘရောက်ဆာ၏ FPS ကို ဖန်သားပြင် refresh rate က ကန့်သတ်သည် (ဥပမာ 60 Hz က 60 ခန့်၌ ကန့်သတ်)။</text></svg><figcaption>ပုံ ၁— ဖရိမ်နှုန်း အပိုင်းအခြားတစ်ခုစီသည် ရွေ့လျားမှုတွင် မည်သို့ခံစားရသည်ကို ပြသည်။</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>ခံစားမှု</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>သိသာစွာ ထစ်သည်၊ ချိန်ရွယ်ခြင်း သို့ scroll လုပ်ခြင်း မချောမွေ့။</td></tr><tr><td class="fpsv">30–45</td><td>ကစားနိုင်သည်၊ ပေါ့ပါးသော နှင့် အလှည့်ကျ ဂိမ်းများအတွက် လုံလောက်။</td></tr><tr><td class="fpsv">60</td><td>ချောမွေ့သည်၊ ဂိမ်းအများစုအတွက် သက်တောင့်သက်သာ ပန်းတိုင်။</td></tr><tr><td class="fpsv">90–120</td><td>အလွန်ချောမွေ့၊ 120 Hz အထက် ဖန်သားပြင်နှင့် အားကောင်းသော GPU လိုသည်။</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="MuMu Player FPS နှင့် စွမ်းဆောင်ရည် စမ်းသပ်ချက် ဘန်နာ" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>MuMu Player အတွက် အခမဲ့ client-side FPS တိုင်းတာကိရိယာနှင့် စက်ပစ္စည်းစစ်ဆေးမှု။</figcaption></figure>
+<h2>MuMu Player သည် သင့်ကွန်ပျူတာတွင် ချောမွေ့စွာ အလုပ်လုပ်မလား။</h2>
+<p>MuMu Player သည် VT ဖွင့်ထားသော CPU 4 core, RAM 4 GB နှင့် GTX 950 အဆင့် GPU အနည်းဆုံးလိုသည်။ ထစ်ထစ်ငေါ့ငေါ့မှု အများစုသည် VT ပိတ်ထားခြင်း၊ instance သို့ CPU သို့မဟုတ် RAM နည်းလွန်းစွာ ခွဲဝေခြင်း၊ သို့မဟုတ် မှားယွင်းသော graphics rendering mode ကြောင့်ဖြစ်သည် —  <a href="https://playermumu.com/performance/">MuMu စွမ်းဆောင်ရည် မြှင့်တင်ခြင်းနှင့် FPS မြင့် ဆက်တင် လမ်းညွှန်</a> က ဖြေရှင်းချက်တစ်ခုစီကို အဆင့်လိုက် ရှင်းပြသည်။</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="သင့်စက်က MuMu ကို ချောမွေ့စွာ ဖွင့်နိုင်မလား။" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">သင့်စက်က MuMu ကို ချောမွေ့စွာ ဖွင့်နိုင်မလား။</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / စက်</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">FPS နှင့် spec လုံလောက်?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">ချောမွေ့ဖွယ်</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">ထစ်ဖွယ်</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">emulator FPS ကို ဆုံးဖြတ်သည့် သုံးချက်</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">BIOS တွင် ဖွင့်ပါ</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">core / RAM ခွဲဝေပါ</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">FPS မြင့် mode ဖွင့်ပါ</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>ပုံ ၂— မြန်ဆန်သော ကိုယ်တိုင်စစ်ဆေးမှုမှ MuMu ဖရိမ်နှုန်းကို ထိန်းချုပ်သည့် အင်အားသုံးခုသို့။</figcaption></figure>
+<h3>စက်အဆင့်နှင့် MuMu ပုံမှန် FPS</h3>
+<table class="ref"><thead><tr><th>အဆင့်</th><th>Core / RAM</th><th>GPU</th><th>ပုံမှန် FPS</th><th>သင့်တော်သည်</th></tr></thead><tbody><tr><td><b>အခြေခံ</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>ပေါ့ပါး၊ ကတ် နှင့် 2D ဂိမ်းများ၊ graphics နိမ့်–အလယ်အလတ်။</td></tr><tr><td><b>ပုံမှန်</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>3D ဂိမ်းအများစု 60 FPS, graphics မြင့်။</td></tr><tr><td><b>အဆင့်မြင့်</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>ပြိုင်ဆိုင် သေနတ်ဂိမ်း၊ FPS မြင့် mode နှင့် တစ်ပြိုင်တည်းဖွင့်။</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="စက်အဆင့်အလိုက် MuMu ပုံမှန် FPS bar chart" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>ပုံမှန် emulator FPS သည် CPU, RAM နှင့် GPU အဆင့်နှင့်အတူ မြင့်တက်သည် (2026 ခန့်မှန်း)။</figcaption></figure>
+<h2>လက်တွေ့ အခြေအနေ မြန်ဆန်စစ်ဆေးမှု</h2>
+<ul class="scenes"><li>GPU အားကောင်းသော်လည်း ဘရောက်ဆာ 60 FPS ၌ ကန့်သတ်နေသလား။ ၎င်းသည် monitor refresh rate သို့မဟုတ် ဘရောက်ဆာ throttling ဖြစ်ပြီး emulator ၏ ကန့်သတ်ချက် မဟုတ်ပါ။</li><li>ဘရောက်ဆာတွင် ချောမွေ့သော်လည်း MuMu တွင် ထစ်သလား။ BIOS တွင် VT (virtualization) ဖွင့်ထားမှ စစ်ဆေးပါ — ၎င်းသည် အဖြစ်များဆုံး အကြောင်းရင်း။</li><li>တစ်ပြိုင်တည်းဖွင့်ရာတွင် ထစ်ခြင်း— instance တစ်ခုစီ၏ core နှင့် RAM ကို လျှော့ပါ၊ သို့မဟုတ် တစ်ပြိုင်တည်း နည်းနည်းသာ ဖွင့်ပါ။</li><li>ဟောင်းသော mechanical drive တွင် load ထစ်သလား။ MuMu Player ကို SSD ပေါ်တွင် ထည့်သွင်းပါ။</li><li>GPU ကို SwiftShader သို့မဟုတ် software အဖြစ် ပြသလား။ hardware acceleration ပိတ်နေသည်၊ တိကျသော ဖတ်မှုနှင့် ဂိမ်းပိုချောမွေ့စေရန် ၎င်းကို ဖွင့်ပါ။</li></ul>
+<section id="i4data"><h2>2026 ခန့်မှန်း— အဆင့်အလိုက် ပုံမှန် ဂိမ်း FPS</h2>
+<p>အောက်ဇယားသည် 2026 ခန့်မှန်းချက် (တိုက်ရိုက် benchmark မဟုတ်) ဖြစ်ပြီး လူကြိုက်များသော Android ဂိမ်းအမျိုးအစားများ၏ emulator အတွင်း ပုံမှန် FPS ကို စက်အဆင့်သုံးခုဖြင့် ပြသည်။</p>
+<table class="ref"><thead><tr><th>ဂိမ်းအမျိုးအစား</th><th>အခြေခံ</th><th>ပုံမှန်</th><th>အဆင့်မြင့်</th></tr></thead><tbody><tr><td>ကတ် / ပေါ့ပါး / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>3D ပွင့်လင်းကမ္ဘာ RPG</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>ပြိုင်ဆိုင် သေနတ်ဂိမ်း / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">ခန့်မှန်းချက်သာဖြစ်ပြီး တိုက်ရိုက် benchmark မဟုတ်ပါ။ အမှန်တကယ် FPS သည် သတ်မှတ်ဂိမ်း၊ graphics ဆက်တင်၊ MuMu rendering mode နှင့် တစ်ပြိုင်တည်းဖွင့်သည့် instance အရေအတွက်အလိုက် ကွဲပြားသည်။</p></section>
+<h2>မေးလေ့ရှိသော မေးခွန်းများ</h2>
+<div class="faq"><details><summary>ဤ FPS စမ်းသပ်ချက် မည်သို့ အလုပ်လုပ်သနည်း။</summary><div class="ans">၎င်းသည် ဘရောက်ဆာ၏ requestAnimationFrame callback ကိုသုံး၍ တစ်စက္ကန့်လျှင် မည်မျှ ဖရိမ် render လုပ်သည်ကို ရေတွက်သည်။ အရာအားလုံး သင့်ဘရောက်ဆာတွင် စက်တွင်း၌ အလုပ်လုပ်ပြီး ဘာမှ မတင်ပါ။</div></details>
+<details><summary>ကျွန်ုပ်၏ FPS သည် အဘယ်ကြောင့် 60 ၌ ကန့်သတ်နေသနည်း။</summary><div class="ans">ဘရောက်ဆာသည် ပုံဆွဲမှုကို ဖန်သားပြင် refresh rate နှင့် sync လုပ်သည်။ 60 Hz ဖန်သားပြင်သည် GPU က ပိုဆွဲနိုင်သော်လည်း ဘရောက်ဆာကို 60 FPS ခန့်၌ ကန့်သတ်သည်။</div></details>
+<details><summary>ဘရောက်ဆာ FPS မြင့်ခြင်းက MuMu ဂိမ်း သေချာ ချောမွေ့မည်ဟု ဆိုလိုသလား။</summary><div class="ans">၎င်းသည် စက်ပစ္စည်း စွမ်းဆောင်ရည်၏ ကြမ်းတမ်းသော ခန့်မှန်းချက်သာ။ emulator ၏ ချောမွေ့မှုသည် VT, သင်ခွဲဝေသော CPU နှင့် RAM နှင့် graphics rendering mode ပေါ်လည်း မူတည်သည်။</div></details>
+<details><summary>MuMu Player ၏ အနိမ့်ဆုံး လိုအပ်ချက်များက အဘယ်နည်း။</summary><div class="ans">တရားဝင် လိုအပ်ချက်အရ— Windows 7 အထက်၊ VT ဖွင့်ထားသော i5-7500 ကဲ့သို့ 4 core CPU, GTX 950 အဆင့် GPU နှင့် RAM 4 GB။</div></details>
+<details><summary>MuMu Player အဘယ်ကြောင့် ထစ်သနည်း။</summary><div class="ans">အဖြစ်များဆုံးမှာ VT ပိတ်ထားခြင်း၊ instance တွင် core သို့မဟုတ် RAM နည်းလွန်းခြင်း၊ သို့မဟုတ် rendering mode သည် GPU နှင့် မကိုက်ညီခြင်း။ ချိတ်ဆက်ထားသော စွမ်းဆောင်ရည် လမ်းညွှန်က ဖြေရှင်းချက်တစ်ခုစီကို ရှင်းပြသည်။</div></details>
+<details><summary>MuMu Player တွင် 120 FPS ရနိုင်သလား။</summary><div class="ans">အချို့ဂိမ်းများ FPS မြင့် mode ကို ထောက်ပံ့သည်။ အမှန်တကယ်မြင်ရရန် 120 Hz အထက် ဖန်သားပြင်နှင့် စွမ်းဆောင်ရည်ပြည့် GPU လည်း လိုသည်။</div></details>
+<details><summary>ဤကိရိယာသည် ကျွန်ုပ်၏ ဒေတာကို တင်သလား။</summary><div class="ans">မတင်ပါ။ FPS တိုင်းတာမှုနှင့် စက်ဖတ်မှုသည် ဘရောက်ဆာတွင်းတွင်သာ အလုပ်လုပ်ပြီး server သို့ ဘယ်တော့မှ မပို့ပါ။</div></details>
+<details><summary>ကျွန်ုပ်၏ GPU သည် software သို့မဟုတ် SwiftShader အဖြစ် ပြသခြင်းသည် ဘာကိုဆိုလိုသနည်း။</summary><div class="ans">သင့်ဘရောက်ဆာသည် hardware acceleration မသုံးပါ။ တိကျသော ဖတ်မှုနှင့် emulator ပိုချောမွေ့စေရန် ဘရောက်ဆာ ဆက်တင်တွင် ၎င်းကို ဖွင့်ပါ။</div></details>
+</div>
+<div class="related"><h2>ကိုးကားချက်များနှင့် ရေးသားသူ</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">MuMu Player တရားဝင် ဝဘ်ဆိုက်</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">MuMu Player စနစ် လိုအပ်ချက်များ (တရားဝင်)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">ရေးသားသူအကြောင်း— Su Hang</a></li>
+</ul></div>
+</main>
+<footer>ဒေတာကို MuMu Player တရားဝင် လိုအပ်ချက်များနှင့် အများသုံး ဖရိမ်နှုန်း ကိုးကားချက်များမှ စုစည်းထားသည်၊ ကိုးကားရန်သာ။<br>2026 ဇွန် တွင် မွမ်းမံ · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

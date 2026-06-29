@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="fil"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>Pagsubok sa FPS at Performance ng MuMu Player — Live na Frame-Rate Meter</title>
+<meta name="description" content="Libreng FPS meter sa browser at mabilis na pagsusuri ng device para sa MuMu Player. Sukatin ang live na frame rate, basahin ang CPU, RAM, at GPU, at tantiyahin kung tatakbo nang maayos ang mga Android game sa emulator.">
+<link rel="canonical" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Pagsubok sa FPS at Performance ng MuMu Player — Live na Frame-Rate Meter",
+   "url": "https://deffreeze.github.io/fil/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "fil",
+   "description": "Libreng FPS meter sa browser at mabilis na pagsusuri ng device para sa MuMu Player. Sukatin ang live na frame rate, basahin ang CPU, RAM, at GPU, at tantiyahin kung tatakbo nang maayos ang mga Android game sa emulator.",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "fil",
+   "url": "https://deffreeze.github.io/fil/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Paano gumagana ang FPS test na ito?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gumagamit ito ng requestAnimationFrame callback ng browser para bilangin kung ilang frame ang na-render bawat segundo. Lahat ay lokal sa iyong browser; walang ina-upload."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bakit naka-cap sa 60 ang FPS ko?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sini-sync ng browser ang pagguhit sa refresh rate ng screen. Ang 60 Hz na screen ay naglilimita sa browser sa paligid ng 60 FPS kahit kaya ng GPU ang mas marami."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ang taas ng FPS sa browser ay tiyak na makinis sa MuMu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Magaspang na tantiya lang ito ng performance ng device. Nakadepende rin ang kinis ng emulator sa VT, inilaang CPU at RAM, at graphics rendering mode."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ano ang minimum requirements ng MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ayon sa opisyal na requirements: Windows 7 pataas, 4-core CPU gaya ng i5-7500 na naka-enable ang VT, GPU na klase ng GTX 950, at 4 GB RAM."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bakit pautal ang MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kadalasan nakapatay ang VT, kulang ang cores o RAM ng instance, o hindi bagay ang rendering mode sa GPU. Ipinapaliwanag ng naka-link na gabay sa performance ang bawat ayos."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kaya bang umabot ng 120 FPS sa MuMu Player?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "May ilang laro na sumusuporta sa high-FPS mode. Kailangan mo rin ng 120 Hz pataas na screen at sapat na GPU para talagang makita ito."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nag-a-upload ba ng data ang tool na ito?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hindi. Ang pagsukat ng FPS at pagbasa ng device ay ganap na tumatakbo sa browser at hindi kailanman ipinapadala sa server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Lumalabas na software o SwiftShader ang GPU ko, ano ang ibig sabihin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hindi gumagamit ng hardware acceleration ang browser mo. Buksan ito sa settings ng browser para tumpak ang pagbasa at mas makinis ang emulator."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "Sukatin ang FPS ko (5s)", "stop": "Itigil", "current": "Kasalukuyan", "average": "Average", "min": "Min", "max": "Max", "hz": "Peak/Hz", "cores": "CPU threads", "mem": "Memory", "gpu": "GPU", "screen": "Screen", "v_pre": "Ang device mo ay nasa antas na", "v_post": ". Ihambing sa talahanayan sa ibaba.", "t_entry": "Entry", "t_main": "Mainstream", "t_high": "High-end"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <strong>Filipino</strong> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Pagsubok sa FPS / Performance ng MuMu Player</h1>
+<p class="intro">Gusto mong malaman kung kayang patakbuhin nang maayos ng PC na ito ang mga laro sa MuMu Player? Sinusukat ng libreng tool na ito sa browser ang iyong live na frame rate (FPS) gamit ang requestAnimationFrame at binabasa ang mga pangunahing detalye ng device — bilang ng CPU thread, memory, at GPU — para sa mabilis na pagtatantya ng performance. Lahat ay tumatakbo nang lokal at walang ina-upload na data.</p>
+<div class="tool"><button id="btn">Sukatin ang FPS ko (5s)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>Kasalukuyan</label></div><div><span id="f_avg">-</span><label>Average</label></div><div><span id="f_min">-</span><label>Min</label></div><div><span id="f_max">-</span><label>Max</label></div><div><span id="f_hz">-</span><label>Peak/Hz</label></div></div><div class="dev"><span>CPU threads</span> <b id="d_cores">-</b> · <span>Memory</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>Screen</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">Tip: panatilihing aktibo ang tab na ito habang sumusukat. Limitado ang FPS ng browser sa refresh rate ng iyong screen, kaya gabay lang itong panrelatibo, hindi ang maximum ng GPU.</p>
+<h2>Ano ang ibig sabihin ng iyong FPS</h2>
+<p>30 FPS ang pinakamababa para malaro; ang pag-akyat sa 60 FPS ang pinakahalatang pagbuti sa kinis, habang ang lampas 120 FPS ay banayad na lang ang pagkakaiba. Sa 60 FPS, may humigit-kumulang 16.7 ms na badyet bawat frame, kaya anumang nagpapahinto ng frame ay lumalabas na pautal-utal.</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sukatan ng pakiramdam ng FPS" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Sukatan ng pakiramdam ng FPS</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">mula pautal hanggang makinis na high-refresh</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ Pautal</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">Napakakinis ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">Limitado ang FPS ng browser sa refresh rate ng screen (hal. 60 Hz ay nasa paligid ng 60).</text></svg><figcaption>Larawan 1: kung paano nararamdaman ang bawat hanay ng frame rate sa galaw.</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>Pakiramdam</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>Halatang pautal; mahirap tumarget o mag-scroll nang kinis.</td></tr><tr><td class="fpsv">30–45</td><td>Nalalaro; sapat para sa casual at turn-based na laro.</td></tr><tr><td class="fpsv">60</td><td>Makinis; komportableng target para sa karamihan ng laro.</td></tr><tr><td class="fpsv">90–120</td><td>Napakakinis; kailangan ng 120 Hz+ na screen at malakas na GPU.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="Banner ng pagsubok sa FPS at performance ng MuMu Player" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>Libre at ganap na client-side na FPS meter at pagsusuri ng device para sa MuMu Player.</figcaption></figure>
+<h2>Tatakbo ba nang maayos ang MuMu Player sa PC mo?</h2>
+<p>Kailangan ng MuMu Player ng kahit 4-core na CPU na naka-enable ang VT, 4 GB RAM, at GPU na klase ng GTX 950. Karamihan sa pagkapautal ay dahil nakapatay ang VT, kulang ang inilaang CPU o RAM sa instance, o maling graphics rendering mode — ang <a href="https://playermumu.com/performance/">gabay sa pag-optimize ng performance at high-FPS ng MuMu</a> ang nagpapaliwanag sa bawat ayos nang sunod-sunod.</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kaya bang patakbuhin nang maayos ng device mo ang MuMu?" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Kaya bang patakbuhin nang maayos ng device mo ang MuMu?</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / device</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Sapat ba ang FPS at specs?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">Malamang makinis</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">Malamang pautal</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Tatlong dahilan ng FPS sa emulator</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">I-enable sa BIOS</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">Maglaan ng cores / RAM</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">Buksan ang high-FPS mode</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Larawan 2: mula sa mabilis na self-check hanggang sa tatlong pingga na kumokontrol sa frame rate ng MuMu.</figcaption></figure>
+<h3>Antas ng device at karaniwang FPS ng MuMu</h3>
+<table class="ref"><thead><tr><th>Antas</th><th>Cores / RAM</th><th>GPU</th><th>Karaniwang FPS</th><th>Mainam para sa</th></tr></thead><tbody><tr><td><b>Entry</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>Casual, card, at 2D na laro sa mababa hanggang katamtamang graphics.</td></tr><tr><td><b>Mainstream</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>Karamihan ng 3D na laro sa 60 FPS, mataas na graphics.</td></tr><tr><td><b>High-end</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>Competitive shooters, high-FPS mode, at multi-instance.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="Bar chart ng karaniwang FPS ng MuMu ayon sa antas ng device" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>Tumataas ang karaniwang FPS sa emulator ayon sa klase ng CPU, RAM, at GPU (tantiya 2026).</figcaption></figure>
+<h2>Mabilis na pagsusuri sa totoong sitwasyon</h2>
+<ul class="scenes"><li>Naka-cap sa 60 FPS ang browser kahit malakas ang GPU? Iyon ay refresh rate ng monitor o throttling ng browser, hindi limitasyon ng emulator.</li><li>Makinis sa browser pero pautal sa MuMu? Tiyaking naka-enable ang VT (virtualization) sa BIOS — ito ang pinakakaraniwang dahilan.</li><li>Pautal sa multi-instance: bawasan ang cores at RAM bawat instance, o magpatakbo ng mas kaunti nang sabay.</li><li>Pautal ang pag-load sa lumang mechanical drive? I-install ang MuMu Player sa SSD.</li><li>Lumalabas ang GPU bilang SwiftShader o software? Nakapatay ang hardware acceleration; buksan ito para tumpak ang pagbasa at mas makinis ang laro.</li></ul>
+<section id="i4data"><h2>Tantiya 2026: karaniwang FPS ng laro ayon sa antas</h2>
+<p>Ang talahanayan sa ibaba ay tantiya sa 2026 (hindi tuwirang benchmark) ng karaniwang FPS sa emulator para sa mga sikat na genre ng Android game sa tatlong antas ng device.</p>
+<table class="ref"><thead><tr><th>Genre ng laro</th><th>Entry</th><th>Mainstream</th><th>High-end</th></tr></thead><tbody><tr><td>Card / casual / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>3D open-world RPG</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>Competitive shooter / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">Tantiya lamang, hindi tuwirang benchmark. Nag-iiba ang totoong FPS depende sa partikular na laro, graphics settings, rendering mode ng MuMu, at bilang ng sabayang instance.</p></section>
+<h2>Mga madalas itanong</h2>
+<div class="faq"><details><summary>Paano gumagana ang FPS test na ito?</summary><div class="ans">Gumagamit ito ng requestAnimationFrame callback ng browser para bilangin kung ilang frame ang na-render bawat segundo. Lahat ay lokal sa iyong browser; walang ina-upload.</div></details>
+<details><summary>Bakit naka-cap sa 60 ang FPS ko?</summary><div class="ans">Sini-sync ng browser ang pagguhit sa refresh rate ng screen. Ang 60 Hz na screen ay naglilimita sa browser sa paligid ng 60 FPS kahit kaya ng GPU ang mas marami.</div></details>
+<details><summary>Ang taas ng FPS sa browser ay tiyak na makinis sa MuMu?</summary><div class="ans">Magaspang na tantiya lang ito ng performance ng device. Nakadepende rin ang kinis ng emulator sa VT, inilaang CPU at RAM, at graphics rendering mode.</div></details>
+<details><summary>Ano ang minimum requirements ng MuMu Player?</summary><div class="ans">Ayon sa opisyal na requirements: Windows 7 pataas, 4-core CPU gaya ng i5-7500 na naka-enable ang VT, GPU na klase ng GTX 950, at 4 GB RAM.</div></details>
+<details><summary>Bakit pautal ang MuMu Player?</summary><div class="ans">Kadalasan nakapatay ang VT, kulang ang cores o RAM ng instance, o hindi bagay ang rendering mode sa GPU. Ipinapaliwanag ng naka-link na gabay sa performance ang bawat ayos.</div></details>
+<details><summary>Kaya bang umabot ng 120 FPS sa MuMu Player?</summary><div class="ans">May ilang laro na sumusuporta sa high-FPS mode. Kailangan mo rin ng 120 Hz pataas na screen at sapat na GPU para talagang makita ito.</div></details>
+<details><summary>Nag-a-upload ba ng data ang tool na ito?</summary><div class="ans">Hindi. Ang pagsukat ng FPS at pagbasa ng device ay ganap na tumatakbo sa browser at hindi kailanman ipinapadala sa server.</div></details>
+<details><summary>Lumalabas na software o SwiftShader ang GPU ko, ano ang ibig sabihin?</summary><div class="ans">Hindi gumagamit ng hardware acceleration ang browser mo. Buksan ito sa settings ng browser para tumpak ang pagbasa at mas makinis ang emulator.</div></details>
+</div>
+<div class="related"><h2>Mga sanggunian at may-akda</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">Opisyal na site ng MuMu Player</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">System requirements ng MuMu Player (opisyal)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">Tungkol sa may-akda: Su Hang</a></li>
+</ul></div>
+</main>
+<footer>Ang datos ay tinipon mula sa opisyal na requirements ng MuMu Player at pampublikong sanggunian ng frame rate; para sa sanggunian lamang.<br>In-update Hunyo 2026 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>Kiểm tra FPS & Hiệu năng MuMu Player — Đo khung hình thời gian thực</title>
+<meta name="description" content="Công cụ đo FPS miễn phí trên trình duyệt và kiểm tra thiết bị nhanh cho MuMu Player. Đo tốc độ khung hình theo thời gian thực, đọc CPU, RAM và GPU, đánh giá game Android có chạy mượt trong giả lập hay không.">
+<link rel="canonical" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deffreeze.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deffreeze.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://deffreeze.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://deffreeze.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://deffreeze.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://deffreeze.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://deffreeze.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://deffreeze.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://deffreeze.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://deffreeze.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://deffreeze.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://deffreeze.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://deffreeze.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Kiểm tra FPS & Hiệu năng MuMu Player — Đo khung hình thời gian thực",
+   "url": "https://deffreeze.github.io/vi/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "vi",
+   "description": "Công cụ đo FPS miễn phí trên trình duyệt và kiểm tra thiết bị nhanh cho MuMu Player. Đo tốc độ khung hình theo thời gian thực, đọc CPU, RAM và GPU, đánh giá game Android có chạy mượt trong giả lập hay không.",
+   "isAccessibleForFree": true,
+   "author": {
+    "@type": "Person",
+    "name": "苏航",
+    "url": "https://deffreeze.github.io/about-suhang/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "vi",
+   "url": "https://deffreeze.github.io/vi/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Bài kiểm tra FPS này hoạt động thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nó dùng callback requestAnimationFrame của trình duyệt để đếm số khung hình kết xuất mỗi giây. Mọi thứ chạy cục bộ trong trình duyệt của bạn; không có gì được tải lên."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Vì sao FPS của tôi bị chặn ở 60?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Trình duyệt đồng bộ vẽ theo tần số quét màn hình. Màn hình 60 Hz chặn trình duyệt quanh 60 FPS dù GPU có thể vẽ nhiều hơn."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "FPS trình duyệt cao có nghĩa game MuMu chắc chắn mượt?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Đó chỉ là ước lượng thô về hiệu năng thiết bị. Độ mượt của giả lập còn phụ thuộc VT, lượng CPU và RAM bạn cấp, và chế độ kết xuất đồ họa."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Cấu hình tối thiểu của MuMu Player là gì?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Theo yêu cầu chính thức: Windows 7 trở lên, CPU 4 nhân như i5-7500 đã bật VT, GPU mức GTX 950 và 4 GB RAM."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Vì sao MuMu Player bị giật?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Thường gặp nhất là VT bị tắt, phiên bản có quá ít nhân hoặc RAM, hoặc chế độ kết xuất không hợp GPU. Hướng dẫn hiệu năng được liên kết trình bày từng cách khắc phục."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Có thể đạt 120 FPS trong MuMu Player không?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Một số game hỗ trợ chế độ FPS cao. Bạn cũng cần màn hình 120 Hz trở lên và GPU đủ mạnh để thực sự thấy được."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Công cụ này có tải lên dữ liệu của tôi không?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Không. Việc đo FPS và đọc thiết bị chạy hoàn toàn trong trình duyệt và không bao giờ gửi tới máy chủ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GPU của tôi hiện là phần mềm hoặc SwiftShader nghĩa là gì?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Trình duyệt của bạn không dùng tăng tốc phần cứng. Hãy bật trong cài đặt trình duyệt để đọc chính xác và giả lập mượt hơn."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>window.L={"measure": "Đo FPS của tôi (5 giây)", "stop": "Dừng", "current": "Hiện tại", "average": "Trung bình", "min": "Thấp nhất", "max": "Cao nhất", "hz": "Đỉnh/Hz", "cores": "Luồng CPU", "mem": "Bộ nhớ", "gpu": "GPU", "screen": "Màn hình", "v_pre": "Thiết bị của bạn khoảng mức", "v_post": ". Hãy so với bảng bên dưới.", "t_entry": "Phổ thông", "t_main": "Tầm trung", "t_high": "Cao cấp"};</script></head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <strong>Tiếng Việt</strong> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Kiểm tra FPS / Hiệu năng MuMu Player</h1>
+<p class="intro">Bạn muốn biết PC này chạy game MuMu Player có mượt không? Công cụ trình duyệt miễn phí này đo tốc độ khung hình (FPS) theo thời gian thực bằng requestAnimationFrame và đọc thông tin cơ bản của thiết bị — số luồng CPU, bộ nhớ và GPU — để ước tính hiệu năng nhanh. Mọi thứ chạy cục bộ và không tải lên dữ liệu nào.</p>
+<div class="tool"><button id="btn">Đo FPS của tôi (5 giây)</button><div class="fpsgrid"><div><span id="f_cur">-</span><label>Hiện tại</label></div><div><span id="f_avg">-</span><label>Trung bình</label></div><div><span id="f_min">-</span><label>Thấp nhất</label></div><div><span id="f_max">-</span><label>Cao nhất</label></div><div><span id="f_hz">-</span><label>Đỉnh/Hz</label></div></div><div class="dev"><span>Luồng CPU</span> <b id="d_cores">-</b> · <span>Bộ nhớ</span> <b id="d_mem">-</b> · <span>GPU</span> <b id="d_gpu">-</b> · <span>Màn hình</span> <b id="d_screen">-</b></div><div id="v_out" class="verdict"></div></div>
+<p class="hint">Mẹo: giữ thẻ này hoạt động khi đo. FPS trình duyệt bị giới hạn bởi tần số quét màn hình, nên đây là tham chiếu tương đối, không phải giới hạn tối đa của GPU.</p>
+<h2>Con số FPS của bạn nghĩa là gì</h2>
+<p>30 FPS là mức tối thiểu để chơi được; lên 60 FPS là bước nhảy về độ mượt rõ nhất, còn vượt 120 FPS thì khác biệt rất nhỏ. Ở 60 FPS, mỗi khung hình chỉ có ngân sách khoảng 16,7 ms, nên bất cứ thứ gì làm nghẽn một khung hình đều hiện ra thành giật.</p>
+<figure><svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thang cảm nhận FPS" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="32" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Thang cảm nhận FPS</text><text x="20" y="56" font-family="system-ui,Arial" font-size="12" fill="#666">từ giật đến mượt tần số quét cao</text><rect x="20" y="70" width="80" height="26" rx="5" fill="#ef4444"/><text x="60" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">&lt;30</text><rect x="150" y="70" width="80" height="26" rx="5" fill="#f59e0b"/><text x="190" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">30</text><rect x="260" y="70" width="80" height="26" rx="5" fill="#eab308"/><text x="300" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">45</text><rect x="380" y="70" width="80" height="26" rx="5" fill="#22c55e"/><text x="420" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">60</text><rect x="500" y="70" width="80" height="26" rx="5" fill="#10b981"/><text x="540" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">90</text><rect x="620" y="70" width="80" height="26" rx="5" fill="#0ea5e9"/><text x="660" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fff" font-weight="700">120</text><text x="20" y="128" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">◀ Giật</text><text x="680" y="128" text-anchor="end" font-family="system-ui,Arial" font-size="12" fill="#0369a1">Cực mượt ▶</text><text x="20" y="152" font-family="system-ui,Arial" font-size="11" fill="#94a3b8">FPS trình duyệt bị tần số quét màn hình giới hạn (vd. 60 Hz giới hạn quanh 60).</text></svg><figcaption>Hình 1: mỗi dải tốc độ khung hình thực sự cảm nhận thế nào khi chuyển động.</figcaption></figure>
+<table class="ref"><thead><tr><th>FPS</th><th>Cảm nhận</th></tr></thead><tbody><tr><td class="fpsv">&lt; 30</td><td>Giật rõ; khó ngắm bắn hay cuộn mượt.</td></tr><tr><td class="fpsv">30–45</td><td>Chơi được; ổn cho game thường và theo lượt.</td></tr><tr><td class="fpsv">60</td><td>Mượt; mục tiêu thoải mái cho hầu hết game.</td></tr><tr><td class="fpsv">90–120</td><td>Cực mượt; cần màn hình 120 Hz+ và GPU mạnh.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover.webp"><img src="/img/cover.png" alt="Biểu ngữ kiểm tra FPS và hiệu năng MuMu Player" fetchpriority="high" width="1120" height="468" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>Công cụ đo FPS và kiểm tra thiết bị miễn phí hoàn toàn phía máy khách cho MuMu Player.</figcaption></figure>
+<h2>MuMu Player có chạy mượt trên PC của bạn không?</h2>
+<p>MuMu Player cần tối thiểu CPU 4 nhân bật VT, 4 GB RAM và GPU mức GTX 950. Hầu hết hiện tượng giật đến từ việc VT bị tắt, cấp quá ít CPU hoặc RAM cho phiên bản, hoặc chế độ kết xuất đồ họa sai —  <a href="https://playermumu.com/performance/">hướng dẫn tối ưu hiệu năng và thiết lập FPS cao của MuMu</a> trình bày từng cách khắc phục theo từng bước.</p>
+<figure><svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thiết bị của bạn chạy MuMu mượt không?" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="30" font-family="system-ui,Arial" font-size="15" font-weight="700" fill="#1d1d1f">Thiết bị của bạn chạy MuMu mượt không?</text><rect x="20" y="46" width="150" height="44" rx="10" fill="#111"/><text x="95" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">FPS / thiết bị</text><path d="M170 68 H205" stroke="#999" stroke-width="2" marker-end="url(#ar)"/><rect x="205" y="46" width="170" height="44" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="290" y="73" text-anchor="middle" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">FPS & cấu hình đủ?</text><path d="M375 60 H405 V40 H432" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/><path d="M375 76 H405 V104 H432" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/><rect x="432" y="18" width="248" height="46" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="446" y="38" font-family="system-ui,Arial" font-size="12" fill="#047857">Có thể mượt</text><text x="446" y="56" font-family="ui-monospace,monospace" font-size="11.5" fill="#065f46">60–120 FPS</text><rect x="432" y="82" width="248" height="46" rx="10" fill="#fef2f2" stroke="#fecaca"/><text x="446" y="102" font-family="system-ui,Arial" font-size="12" fill="#b91c1c">Có thể giật</text><text x="446" y="120" font-family="ui-monospace,monospace" font-size="11.5" fill="#991b1b">VT · CPU/RAM · GPU</text><text x="20" y="165" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Ba yếu tố quyết định FPS giả lập</text><g font-family="system-ui,Arial" font-size="11.5"><rect x="20" y="178" width="158" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="200" font-weight="700" fill="#1d4ed8">VT</text><text x="32" y="220" fill="#444">Bật trong BIOS</text><rect x="190" y="178" width="158" height="56" rx="10" fill="#ecfeff" stroke="#bae6fd"/><text x="202" y="200" font-weight="700" fill="#0369a1">CPU / RAM</text><text x="202" y="220" fill="#444">Cấp nhân / RAM</text><rect x="360" y="178" width="158" height="56" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="372" y="200" font-weight="700" fill="#047857">GPU</text><text x="372" y="220" fill="#444">DX11 / OpenGL / Vulkan</text><rect x="530" y="178" width="150" height="56" rx="10" fill="#fef9c3" stroke="#fde68a"/><text x="542" y="200" font-weight="700" fill="#854d0e">FPS</text><text x="542" y="220" fill="#444">Bật chế độ FPS cao</text></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Hình 2: từ tự kiểm tra nhanh đến ba đòn bẩy điều khiển tốc độ khung hình MuMu.</figcaption></figure>
+<h3>Mức thiết bị và FPS điển hình của MuMu</h3>
+<table class="ref"><thead><tr><th>Mức</th><th>Nhân / RAM</th><th>GPU</th><th>FPS điển hình</th><th>Phù hợp cho</th></tr></thead><tbody><tr><td><b>Phổ thông</b></td><td>4 / 4 GB</td><td>GTX 950 · iGPU</td><td class="fpsv">30–45</td><td>Game thường, thẻ bài, 2D ở đồ họa thấp đến trung.</td></tr><tr><td><b>Tầm trung</b></td><td>6 / 8 GB</td><td>GTX 1050+</td><td class="fpsv">60</td><td>Hầu hết game 3D ở 60 FPS, đồ họa cao.</td></tr><tr><td><b>Cao cấp</b></td><td>8+ / 16 GB</td><td>GTX 1660+ · RTX</td><td class="fpsv">90–120</td><td>Game bắn súng đối kháng, chế độ FPS cao, đa phiên bản.</td></tr></tbody></table>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/perfchart.webp"><img src="/img/perfchart.png" alt="Biểu đồ cột FPS điển hình của MuMu theo mức thiết bị" loading="lazy" width="1120" height="600" style="width:100%;height:auto;border-radius:12px;border:1px solid #e6e6ea"></picture><figcaption>FPS giả lập điển hình tăng theo cấp CPU, RAM và GPU (ước tính 2026).</figcaption></figure>
+<h2>Kiểm tra nhanh theo tình huống thực</h2>
+<ul class="scenes"><li>Trình duyệt chặn ở 60 FPS dù GPU mạnh? Đó là tần số quét màn hình hoặc trình duyệt giới hạn, không phải giới hạn của giả lập.</li><li>Mượt trên trình duyệt nhưng giật trong MuMu? Hãy kiểm tra VT (ảo hóa) đã bật trong BIOS chưa — đây là nguyên nhân phổ biến nhất.</li><li>Giật khi đa phiên bản: giảm nhân và RAM mỗi phiên bản, hoặc chạy ít hơn cùng lúc.</li><li>Giật khi tải trên ổ cứng cơ cũ? Hãy cài MuMu Player lên SSD.</li><li>GPU hiện là SwiftShader hoặc phần mềm? Tăng tốc phần cứng đang tắt; bật lên để đọc chính xác và game mượt hơn.</li></ul>
+<section id="i4data"><h2>Ước tính 2026: FPS điển hình theo mức</h2>
+<p>Bảng dưới là ước tính năm 2026 (không phải đo trực tiếp) về FPS điển hình trong giả lập cho các thể loại game Android phổ biến trên ba mức thiết bị.</p>
+<table class="ref"><thead><tr><th>Thể loại game</th><th>Phổ thông</th><th>Tầm trung</th><th>Cao cấp</th></tr></thead><tbody><tr><td>Thẻ bài / thường / 2D</td><td class="fpsv">60</td><td class="fpsv">60</td><td class="fpsv">60</td></tr><tr><td>Nhập vai thế giới mở 3D</td><td class="fpsv">30</td><td class="fpsv">45–60</td><td class="fpsv">60–90</td></tr><tr><td>Bắn súng đối kháng / MOBA</td><td class="fpsv">30–45</td><td class="fpsv">60</td><td class="fpsv">90–120</td></tr></tbody></table><p class="src">Chỉ là ước tính, không phải đo trực tiếp. FPS thực tế thay đổi theo game cụ thể, thiết lập đồ họa, chế độ kết xuất MuMu và số phiên bản chạy cùng lúc.</p></section>
+<h2>Câu hỏi thường gặp</h2>
+<div class="faq"><details><summary>Bài kiểm tra FPS này hoạt động thế nào?</summary><div class="ans">Nó dùng callback requestAnimationFrame của trình duyệt để đếm số khung hình kết xuất mỗi giây. Mọi thứ chạy cục bộ trong trình duyệt của bạn; không có gì được tải lên.</div></details>
+<details><summary>Vì sao FPS của tôi bị chặn ở 60?</summary><div class="ans">Trình duyệt đồng bộ vẽ theo tần số quét màn hình. Màn hình 60 Hz chặn trình duyệt quanh 60 FPS dù GPU có thể vẽ nhiều hơn.</div></details>
+<details><summary>FPS trình duyệt cao có nghĩa game MuMu chắc chắn mượt?</summary><div class="ans">Đó chỉ là ước lượng thô về hiệu năng thiết bị. Độ mượt của giả lập còn phụ thuộc VT, lượng CPU và RAM bạn cấp, và chế độ kết xuất đồ họa.</div></details>
+<details><summary>Cấu hình tối thiểu của MuMu Player là gì?</summary><div class="ans">Theo yêu cầu chính thức: Windows 7 trở lên, CPU 4 nhân như i5-7500 đã bật VT, GPU mức GTX 950 và 4 GB RAM.</div></details>
+<details><summary>Vì sao MuMu Player bị giật?</summary><div class="ans">Thường gặp nhất là VT bị tắt, phiên bản có quá ít nhân hoặc RAM, hoặc chế độ kết xuất không hợp GPU. Hướng dẫn hiệu năng được liên kết trình bày từng cách khắc phục.</div></details>
+<details><summary>Có thể đạt 120 FPS trong MuMu Player không?</summary><div class="ans">Một số game hỗ trợ chế độ FPS cao. Bạn cũng cần màn hình 120 Hz trở lên và GPU đủ mạnh để thực sự thấy được.</div></details>
+<details><summary>Công cụ này có tải lên dữ liệu của tôi không?</summary><div class="ans">Không. Việc đo FPS và đọc thiết bị chạy hoàn toàn trong trình duyệt và không bao giờ gửi tới máy chủ.</div></details>
+<details><summary>GPU của tôi hiện là phần mềm hoặc SwiftShader nghĩa là gì?</summary><div class="ans">Trình duyệt của bạn không dùng tăng tốc phần cứng. Hãy bật trong cài đặt trình duyệt để đọc chính xác và giả lập mượt hơn.</div></details>
+</div>
+<div class="related"><h2>Nguồn và tác giả</h2>
+<ul>
+<li><a href="https://www.mumuplayer.com/" rel="nofollow" target="_blank">Trang chính thức MuMu Player</a></li>
+<li><a href="https://www.mumuplayer.com/help/win/minimum-system-request-mumu-windows.html" rel="nofollow" target="_blank">Yêu cầu hệ thống MuMu Player (chính thức)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" rel="nofollow" target="_blank">MDN: requestAnimationFrame</a></li>
+<li><a href="https://deffreeze.github.io/about-suhang/">Về tác giả: Su Hang</a></li>
+</ul></div>
+</main>
+<footer>Dữ liệu tổng hợp từ yêu cầu chính thức của MuMu Player và tài liệu tốc độ khung hình công khai; chỉ để tham khảo.<br>Cập nhật tháng 6 năm 2026 · <a href="https://deffreeze.github.io/about-suhang/" rel="author">苏航</a> · MIT License</footer>
+</div><script src="/app.js" defer></script></body></html>
